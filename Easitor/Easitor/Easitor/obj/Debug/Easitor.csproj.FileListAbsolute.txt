@@ -1,0 +1,13 @@
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\bin\Debug\Easitor.exe.config
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\bin\Debug\Easitor.exe
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\bin\Debug\Easitor.pdb
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\Easitor.csprojResolveAssemblyReference.cache
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\MainWindow.baml
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\MainWindow.g.cs
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\App.g.cs
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\Easitor_MarkupCompile.cache
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\Easitor.g.resources
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\Easitor.Properties.Resources.resources
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\Easitor.csproj.GenerateResource.Cache
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\Easitor.exe
+\\psf\Home\Desktop\Projects\Проекты\Курсовики\3 семестр\Easitor\Easitor\Easitor\obj\Debug\Easitor.pdb

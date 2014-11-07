@@ -1,0 +1,218 @@
+﻿<Window x:Class="Easitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="700" Width="1100" WindowState="Maximized" WindowStyle="None" x:Name="TheWindow">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#FFC5C9CD" Width="3333" Height="30"></Rectangle>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="55"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Menu Grid.Column="0" VerticalAlignment="Center" Background="Transparent" Foreground="#FF656870" FontFamily="Verdana" FontSize="14">
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Новый проект"></MenuItem>
+                    <MenuItem Header="Открыть проект"></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="Открыть изображение" Click="MenuItem_Click_2"></MenuItem>
+                    <MenuItem Header="Сохранить как..."></MenuItem>
+                    <MenuItem Header="Сохранить проект"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Обработка">
+                    <MenuItem Header="Размытие Гаусса" Click="MenuItem_Click_3"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Справка"></MenuItem>
+            </Menu>
+            <ItemsControl Grid.Column="1" ItemsSource="{Binding ToolList}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="30" ToolTip="{Binding Description}" MouseLeftButtonDown="Grid_MouseLeftButtonDown_1">
+                            <Rectangle Width="30" Height="30" Fill="{Binding Color}"></Rectangle>
+                            <Image Source="{Binding Icon}" Width="30" Height="30"></Image>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Menu Grid.Column="2" VerticalAlignment="Center" Background="#FF656870" Foreground="#FFDCE0E3" FontFamily="Verdana" FontSize="14">
+                <MenuItem Header="—"></MenuItem>
+                <MenuItem Header="X" Click="MenuItem_Click_1"></MenuItem>
+            </Menu>
+        </Grid>
+        <WrapPanel Grid.Row="1" Background="#FFA4AEB9" Width="3333">
+            
+            <!--открывалка левой панели-->
+            <Grid Width="30" Height="30" MouseLeftButtonUp="Grid_MouseLeftButtonUp_1">
+                <Rectangle Width="30" Height="30" Fill="{Binding LeftPanelButtonBackground}"></Rectangle>
+                <Image Source="{Binding LeftPanelButtonImage}" Width="20" Height="20" Margin="5,0,0,0"></Image>
+            </Grid>
+            <!--открывалка левой панели-->
+            
+            <Grid ToolTip="Радиус выбранного интрумента" Margin="15,5,0,5" Height="30" MouseLeftButtonDown="Grid_MouseLeftButtonDown_4">
+                <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Width="{Binding sliderRadiusWidth}" Fill="#FFF2EEEF" Height="30"></Rectangle>
+                <Rectangle Width="200" Height="30" RadiusX="5" RadiusY="5" Stroke="#FF656870" Fill="#00FFFFFF" StrokeThickness="2"></Rectangle>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="#FF656870" Text="{Binding sliderRadiusView}"></TextBlock>
+            </Grid>
+            <Grid ToolTip="Непрозрачность наносимого изображения" Margin="15,5,0,5" Height="30" MouseLeftButtonDown="Grid_MouseLeftButtonDown_4">
+                <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Width="{Binding sliderOpacityWidth}" Fill="#FFF2EEEF" Height="30"></Rectangle>
+                <Rectangle Width="200" Height="30" RadiusX="5" RadiusY="5" Stroke="#FF656870" Fill="#00FFFFFF" StrokeThickness="2"></Rectangle>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="#FF656870" Text="{Binding sliderOpacityView}"></TextBlock>
+            </Grid>
+            <Grid ToolTip="Чёткость границы" Margin="15,5,0,5" Height="30" MouseLeftButtonDown="Grid_MouseLeftButtonDown_4"> 
+                <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Width="{Binding sliderBlurWidth}" Fill="#FFF2EEEF" Height="30"></Rectangle>
+                <Rectangle Width="200" Height="30" RadiusX="5" RadiusY="5" Stroke="#FF656870" Fill="#00FFFFFF" StrokeThickness="2"></Rectangle>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="#FF656870" Text="{Binding sliderBlurView}"></TextBlock>
+            </Grid>
+            <Grid Margin="15,5,0,5" Height="30" MouseLeftButtonDown="Grid_MouseLeftButtonDown_4">
+                <Rectangle Width="200" Height="30" Fill="#FFe3e611" RadiusX="5" RadiusY="5"  Stroke="#FF656870" StrokeThickness="2"></Rectangle>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="#FF656870" Text="#e3e611"></TextBlock>
+            </Grid>
+            
+        </WrapPanel>
+        <!--Добавить новый слой-->
+        <Grid Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,30,0" Width="30" Height="30" MouseLeftButtonUp="Grid_MouseLeftButtonUp_3">
+            <Image Source="UI/PlusDark.png" Width="20" Height="20" Margin="0,0,5,0"></Image>
+        </Grid>
+        <!--Добавить новый слой-->
+        
+        <!--открывалка правой панели-->
+        <Grid Grid.Row="1" HorizontalAlignment="Right" Width="30" Height="30" MouseLeftButtonUp="Grid_MouseLeftButtonUp_2">
+            <Rectangle Width="30" Height="30" Fill="{Binding RightPanelButtonBackground}"></Rectangle>
+            <Image Source="{Binding RightPanelButtonImage}" Width="20" Height="20" Margin="0,0,5,0"></Image>
+        </Grid>
+        <!--открывалка правой панели-->
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding LeftColumnWidth}"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="{Binding RightColumnWidth}"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--История-->
+            <Grid Grid.Column="0">
+                <Rectangle Fill="#FF7E8A96" Width="Auto" Height="Auto"></Rectangle>
+            </Grid>
+            <!--История-->
+            
+            <!--Холст-->
+            <Grid Grid.Column="1" 
+                  
+                  x:Name="PaintArea"
+                  
+                  >
+                <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                    <Grid Width="Auto" Height="Auto">
+                        <ItemsControl ItemsSource="{Binding Path=LayerList}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas
+                                        MouseLeftButtonDown="Grid_MouseLeftButtonDown_2" 
+                                        MouseMove="PaintArea_MouseMove_1"
+                                        MouseLeftButtonUp="PaintArea_MouseLeftButtonUp_1"
+                                        >
+                                        
+                                    </Canvas>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                            <ItemsControl.ItemTemplate>
+
+                                <DataTemplate>
+                                    <Grid Loaded="Grid_Loaded_1" Tag="{Binding ToolTip}">
+                                        <Image
+                                            
+                                    Source="{Binding BitMap}"
+                                    Width="{Binding Width}"
+                                    Height="{Binding Height}"   
+                                        >
+                                            <Image.Effect>
+                                                <BlurEffect Radius="{Binding BlurRadius}"></BlurEffect>
+                                            </Image.Effect>
+                                        </Image>
+                                        <ItemsControl ItemsSource="{Binding Path=CircleList}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <Canvas
+                                                        Opacity="{Binding BrushOpacity}"
+                                                        ></Canvas>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemContainerStyle>
+                                                <Style TargetType="ContentPresenter">
+                                                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                                                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                                                </Style>
+                                            </ItemsControl.ItemContainerStyle>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid >
+                                                        <Ellipse
+                                                    Fill="{Binding Color}"
+                                                    Width="{Binding Width}"
+                                                    Height="{Binding Height}"   
+                                                            
+                                                >
+                                                            
+                                                        </Ellipse>
+                                                        <Grid.Effect>
+                                                            <BlurEffect Radius="{Binding BlurRadius}"></BlurEffect>
+                                                        </Grid.Effect>
+                                                    </Grid>
+
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                    
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+            <!--Холст-->
+            
+            <!--Слои-->
+            <Grid Grid.Column="2">
+                <Rectangle Fill="#FF7E8A96" Width="Auto" Height="Auto"></Rectangle>
+                <ItemsControl ItemsSource="{Binding Path=RevercedLayerList}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,0" ScrollViewer.CanContentScroll="True" FlowDirection="RightToLeft">
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="40" Width="{Binding MAX_RIGHT_COLUMN_WIDTH}" Margin="0,0,0,0" MouseLeftButtonDown="Grid_MouseLeftButtonDown_3" ToolTip="{Binding ToolTip}">
+                                <Rectangle Width="Auto" Height="Auto" Fill="{Binding Background}"></Rectangle>
+                                <Image Source="{Binding BitMap}" Width="{Binding MAX_RIGHT_COLUMN_WIDTH}" Height="40" RenderTransformOrigin="0.5,0.5">
+                                </Image>
+                                <TextBlock FontFamily="Verdana" Text="TestLayer"></TextBlock>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+            <!--Слои-->
+        </Grid>
+    </Grid>
+</Window>

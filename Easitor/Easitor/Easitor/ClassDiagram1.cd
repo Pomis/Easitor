@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Easitor.App" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.BrushModel" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAgAAAAAAAAEAAAAAAAAAAAAAKAAAA=</HashCode>
+      <FileName>BrushModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Easitor.Circle" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Circle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.CommonToolModel" Collapsed="true">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAIAgAAAAAAAAAAQAAAAIAAAAAAgAwAMAAAA=</HashCode>
+      <FileName>CommonToolModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.GlobalConstants" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAgAAAAAAAACAAAAEAAAAAgAAAAAAAA=</HashCode>
+      <FileName>GlobalConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.INPC" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INPC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Easitor.Layer" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAQAAAACAAICAAAAQgAAAAAAgAAAMCgAAAAQYA=</HashCode>
+      <FileName>Layer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.MainWindow" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAAEAAABAAAEAAAAgAAAcAAAACAAgAAAQAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.MoverToolModel" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAgAAAAAAgAAACAAAAAIAAAAAKAAAA=</HashCode>
+      <FileName>MoverToolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Easitor.PixelColor" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAABAAAAA=</HashCode>
+      <FileName>PixelColor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.PlacableModel" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAIBASAAAAAAAAAAEAAABAAAAAAAAAAACIAYIA=</HashCode>
+      <FileName>PlacableModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.TimeredActions" Collapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>TimeredActions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.Properties.Resources" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.Properties.Settings" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Easitor.EditorModel" Collapsed="true">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQFAKFklEBUIAAA6ACaAEIAAIkSEEKBoEgAtgQIEUA=</HashCode>
+      <FileName>EditorModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Easitor.ITool" Collapsed="true">
+    <Position X="16.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAgAAAgAAAAAAQAAAAAAAAAAAAAwAOAAAA=</HashCode>
+      <FileName>ITool.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
