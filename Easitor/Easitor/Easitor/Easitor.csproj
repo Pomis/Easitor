@@ -64,6 +64,7 @@
     <Compile Include="PlacableModel.cs" />
     <Compile Include="TimeredActions.cs" />
     <Compile Include="ITool.cs" />
+    <Compile Include="PickerModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="UI\Transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI\PickerToolBright.png" />
+    <Resource Include="UI\PickerToolDark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

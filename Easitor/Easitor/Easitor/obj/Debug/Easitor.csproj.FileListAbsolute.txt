@@ -16,7 +16,6 @@ Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.ex
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.pdb
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\Easitor.exe
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\Easitor.pdb
-Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.csprojResolveAssemblyReference.cache
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\MainWindow.baml
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\MainWindow.g.cs
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\App.g.cs
