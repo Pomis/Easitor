@@ -83,8 +83,10 @@ namespace Easitor
         public EditorModel()
         {
             GetTypes();
-            Layer Background = new Layer("UI/Transparent.png",this);
-            
+            Layer FirstLayer = new Layer(this);
+            ChooseLayer(FirstLayer);
+
+            InitializeSliders();
         }
         #endregion
         #region Методы
@@ -115,7 +117,7 @@ namespace Easitor
             }
         }
 
-
+        // Выбрать инструмент по описанию
         public void SelectTool(string _Description)
         {
             if (SelectedTool!=null)SelectedTool.Deselect();
@@ -164,24 +166,28 @@ namespace Easitor
         {
             sliderRadius = 5;
             sliderRadiusView = "Радиус: 5";
+            sliderRadiusWidth = 5 * 2;
+
             sliderBlur = 0;
-            sliderBlurView = "Жёсткость: 0%";
+            sliderBlurView = "Жёсткость: 100%";
+            sliderBlurWidth = 200;
+
             sliderOpacity = 1;
-            //sliderOpacityView = "Непрозн...
+            sliderOpacityWidth = 200;
+            sliderOpacityView = "Непрозрачность: 100%";
         }
 
         public void Blur()
         {
-            foreach (Layer L in LayerList)
-            {
-                if (!L.IsBackground)
-                L.BlurRadius = 5;
-            }
+            if(SelectedLayer!=null)
+                SelectedLayer.BlurRadius = 5;
         }
 
         public void NewLayer()
         {
-            LayerList.Add(new Layer(this));
+            Layer L = new Layer(this);
+            LayerList.Add(L);
+            ChooseLayer(L);
         }
         public void ImportImage()
         {
@@ -222,6 +228,7 @@ namespace Easitor
         List<Grid> Grids = new List<Grid>();
         public void CreateGridList(Grid Grid)
         {
+            RenderGrid = Grid;
             if (Grids.Count() == 0) Grids.Add(Grid);
             bool IsOK = false;
             foreach (Grid grid in Grids)
@@ -289,6 +296,9 @@ namespace Easitor
                 ITool plugin = (ITool)Activator.CreateInstance(type);
                 ToolList.Add(plugin);
             }
+            // Пусть первый инструмент будет выбран по умолчанию!
+            ToolList[0].Select();
+            SelectedTool = ToolList[0];
         }
         #endregion
         #endregion

@@ -47,8 +47,6 @@ namespace Easitor
             //рисуем кружочки!
             Circle AddingCircle = new Circle("Red",Model.sliderRadius,Model.sliderBlur,Model.sliderOpacity, e.GetPosition(W.PaintArea).X-Model.SelectedLayer.X, e.GetPosition(W.PaintArea).Y-Model.SelectedLayer.Y);
             Model.SelectedLayer.CircleList.Add(AddingCircle);
-
-
         }
         public void FinishAction()
         {

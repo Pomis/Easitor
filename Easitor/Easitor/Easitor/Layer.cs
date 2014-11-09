@@ -14,6 +14,7 @@ namespace Easitor
     public class Layer:PlacableModel
     {
         #region Конструкторы
+        // Новый пустой слой.
         public Layer(EditorModel Model)
         {
             _Model=Model;
@@ -26,6 +27,7 @@ namespace Easitor
             Width = BitMap.Width;
             Height = BitMap.Height;
         }
+        // Загрузка изображения из файла в слой.
         public Layer(string path, EditorModel Model)
         {
             _Model=Model;
@@ -115,6 +117,9 @@ namespace Easitor
         ObservableCollection<Circle> _CircleList = new ObservableCollection<Circle>();
         public ObservableCollection<Circle> CircleList { get { return _CircleList; } set { _CircleList = value; OnPropertyChanged("CircleList"); } }
 
+        string _PolylinePoints="";
+        public string PolylinePoints { get { return _PolylinePoints; } set { _PolylinePoints = value; } }
+
         private double _angle;
         public double Angle
         {
@@ -144,7 +149,7 @@ namespace Easitor
             }
             return c;
         }
-        
+
         public void RenderThumbnail() { }
     }
 }

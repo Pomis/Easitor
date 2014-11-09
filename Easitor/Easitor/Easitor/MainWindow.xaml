@@ -112,8 +112,9 @@
                   x:Name="PaintArea"
                   
                   >
-                <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                <ScrollViewer HorizontalScrollBarVisibility="Visible">    
                     <Grid Width="Auto" Height="Auto">
+                        <Image Width="Auto" Height="Auto" Source="UI/Transparent.png"></Image>
                         <ItemsControl ItemsSource="{Binding Path=LayerList}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -163,17 +164,16 @@
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <Grid >
+                                                        
                                                         <Ellipse
                                                     Fill="{Binding Color}"
                                                     Width="{Binding Width}"
-                                                    Height="{Binding Height}"   
-                                                            
-                                                >
-                                                            
+                                                    Height="{Binding Height}">
                                                         </Ellipse>
                                                         <Grid.Effect>
                                                             <BlurEffect Radius="{Binding BlurRadius}"></BlurEffect>
                                                         </Grid.Effect>
+                                                        
                                                     </Grid>
 
                                                 </DataTemplate>
