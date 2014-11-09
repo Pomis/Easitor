@@ -109,5 +109,10 @@ namespace Easitor
         {
             Model.CreateGridList((sender as Grid));
         }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            Model.RunAutomator();
+        }
     }
 }

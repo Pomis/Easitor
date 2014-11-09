@@ -27,6 +27,7 @@
                 </MenuItem>
                 <MenuItem Header="Обработка">
                     <MenuItem Header="Размытие Гаусса" Click="MenuItem_Click_3"></MenuItem>
+                    <MenuItem Header="Автоматизатор" Click="MenuItem_Click_4"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Справка"></MenuItem>
             </Menu>
@@ -76,8 +77,8 @@
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="#FF656870" Text="{Binding sliderBlurView}"></TextBlock>
             </Grid>
             <Grid Margin="15,5,0,5" Height="30" MouseLeftButtonDown="Grid_MouseLeftButtonDown_4">
-                <Rectangle Width="200" Height="30" Fill="#FFe3e611" RadiusX="5" RadiusY="5"  Stroke="#FF656870" StrokeThickness="2"></Rectangle>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="#FF656870" Text="#e3e611"></TextBlock>
+                <Rectangle Width="200" Height="30" Fill="{Binding sliderColorView}" RadiusX="5" RadiusY="5"  Stroke="#FF656870" StrokeThickness="2"></Rectangle>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="#FF656870" Text="{Binding sliderColorView}"></TextBlock>
             </Grid>
             
         </WrapPanel>
