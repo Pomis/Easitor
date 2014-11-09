@@ -55,8 +55,14 @@
     </ApplicationDefinition>
     <Compile Include="BrushModel.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="SelectModel.cs" />
     <Compile Include="CommonToolModel.cs" />
     <Compile Include="GlobalConstants.cs" />
+    <Compile Include="InterpretatorModel.cs" />
+    <Compile Include="InterpretatorTemplates.cs" />
+    <Compile Include="InterpretatorWindow.xaml.cs">
+      <DependentUpon>InterpretatorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layer.cs" />
     <Compile Include="MoverToolModel.cs" />
     <Compile Include="OptionModel.cs" />
@@ -65,6 +71,10 @@
     <Compile Include="TimeredActions.cs" />
     <Compile Include="ITool.cs" />
     <Compile Include="PickerModel.cs" />
+    <Page Include="InterpretatorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

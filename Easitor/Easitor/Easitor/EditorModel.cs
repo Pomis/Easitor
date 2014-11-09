@@ -19,7 +19,7 @@ namespace Easitor
 
         public double sliderRadius { get; set; }
         public double sliderOpacity { get; set; }
-        public double sliderColor { get; set; }
+        public string sliderColor { get; set; }
         public double sliderBlur {get; set;}
 
         string _sliderRadiusView;
@@ -78,14 +78,21 @@ namespace Easitor
         protected bool IsRightPanelExpanding = false;
         protected bool IsRightPanelShrinking = false;
         #endregion
-        
+        #region Статическая ссылка
+        static public EditorModel StaticModel;
+        void MakeStaticLink()
+        {
+            StaticModel = this;
+        }
+        #endregion
+
         #region Инициализация
         public EditorModel()
         {
             GetTypes();
             Layer FirstLayer = new Layer(this);
             ChooseLayer(FirstLayer);
-
+            MakeStaticLink();
             InitializeSliders();
         }
         #endregion
@@ -157,7 +164,7 @@ namespace Easitor
                 else
                 {
                     sliderBlurView = "Жёсткость: 100%";
-                    sliderBlur = 1 * sliderRadius;
+                    sliderBlur = 0;
                 }
                 sliderBlurWidth = Factor * 200;
             }
@@ -175,6 +182,8 @@ namespace Easitor
             sliderOpacity = 1;
             sliderOpacityWidth = 200;
             sliderOpacityView = "Непрозрачность: 100%";
+
+            sliderColorView = "#343546";
         }
 
         public void Blur()
@@ -270,6 +279,14 @@ namespace Easitor
             _L.Background = GRAY_2;
             SelectedLayer = _L;
             
+        }
+
+
+        public void RunAutomator()
+        {
+            InterpretatorWindow W = new InterpretatorWindow();
+            W.Show();
+            W.Focus();
         }
         #region Рефлексия
         public void GetTypes()

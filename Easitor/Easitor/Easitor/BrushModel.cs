@@ -45,7 +45,7 @@ namespace Easitor
             #endregion
 
             //рисуем кружочки!
-            Circle AddingCircle = new Circle("Red",Model.sliderRadius,Model.sliderBlur,Model.sliderOpacity, e.GetPosition(W.PaintArea).X-Model.SelectedLayer.X, e.GetPosition(W.PaintArea).Y-Model.SelectedLayer.Y);
+            Circle AddingCircle = new Circle(Model.sliderColorView,Model.sliderRadius,Model.sliderBlur,Model.sliderOpacity, e.GetPosition(W.PaintArea).X-Model.SelectedLayer.X, e.GetPosition(W.PaintArea).Y-Model.SelectedLayer.Y);
             Model.SelectedLayer.CircleList.Add(AddingCircle);
         }
         public void FinishAction()
@@ -67,7 +67,7 @@ namespace Easitor
         {
             if (IsPainting)
             {
-                Circle AddingCircle = new Circle("Red", Model.sliderRadius, Model.sliderBlur, Model.sliderOpacity, e.GetPosition(win.PaintArea).X-Model.SelectedLayer.X, e.GetPosition(win.PaintArea).Y-Model.SelectedLayer.Y);
+                Circle AddingCircle = new Circle(Model.sliderColorView, Model.sliderRadius, Model.sliderBlur, Model.sliderOpacity, e.GetPosition(win.PaintArea).X - Model.SelectedLayer.X, e.GetPosition(win.PaintArea).Y - Model.SelectedLayer.Y);
                 Model.SelectedLayer.CircleList.Add(AddingCircle);
             }
         }
