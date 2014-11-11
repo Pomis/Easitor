@@ -33,13 +33,35 @@ namespace Easitor
         public void Reset() { }
     }
 
-    //public class Move : AbstractFunction, IFunction
-    //{
-    //    public void Init()
-    //    {
-    //        FunctionName = "move";
-    //    }
-    //}
+    public class Move : AbstractFunction, IFunction, IState
+    {
+        public void Init()
+        {
+            FunctionName = "move";
+        }
+        double XMove;
+        double YMove;
+        public override void Overload()
+        {
+            if (Args.Count(n => n != null) == 1)
+            {
+                XMove = Convert.ToInt16(Args[0]);
+            }
+            else
+            {
+                XMove = Convert.ToInt16(Args[0]);
+                YMove = Convert.ToInt16(Args[1]);
+            }
+        }
+        public override void DealWithModel()
+        {
+            foreach (Layer L in InterpretatorModel.SelectedLayers)
+            {
+                L.X += XMove;
+                L.Y += YMove;
+            }
+        }
+    }
 
     //public class Blur : AbstractFunction, IFunction
     //{

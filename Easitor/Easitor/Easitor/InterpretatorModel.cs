@@ -36,7 +36,7 @@ namespace Easitor
         public void CheckSyntax(string Script)
         {
             Script = Regex.Replace(Script, @"\s+", " ");
-            ScriptText = Script;
+            ScriptText = Script.Trim();
             string[] Steps = Script.Split(';');
             ((InterpretatorViewModel)this).ErrorList.Clear();
             foreach (string Step in Steps)
@@ -52,15 +52,17 @@ namespace Easitor
 
         public void Start()
         {
+            ScriptText = ScriptText.Trim();
             if (!HasErrors)
             {
-                string[] Steps = ScriptText.Split(';');
+                string[] Steps = ScriptText.Split(';').Where(n=>n.Length>=3).ToArray();
                 ((InterpretatorViewModel)this).ErrorList.Clear();
-                foreach (string Step in Steps)
+                for (int i = 0; i < Steps.Count(); i++)
                 {
-                    if (IsValide(Step))
+                    Steps[i] = Steps[i].Trim();
+                    if (IsValide(Steps[i]))
                     {
-                        string[] Words = Step.Split(' ');
+                        string[] Words = Steps[i].Split(' ');
                         string[] args = Words.Where(n => n!=Words[0]).ToArray();
                         RunFunction(Words[0], args);
                     }
