@@ -3,24 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="InterpretatorWindow" Height="600" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="160"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1">
-            <TextBlock FontFamily="Verdana" TextWrapping="Wrap">
-                <TextBlock Text="Примеры использования"></TextBlock>
-                <StackPanel Margin="10,10,0,10">
-                    <TextBlock Text="select 0-5;" FontFamily="Consolas"></TextBlock>
-                    <TextBlock Text="move -30 50;" FontFamily="Consolas"></TextBlock>
-                    <TextBlock Text="blur 10;" FontFamily="Consolas"></TextBlock>
-                </StackPanel>
-                <TextBlock TextWrapping="Wrap" Text="Выбрать слои от нулевого до пятого, передвинуть каждый выбранный слой на 30 против оси Х и на 50 по оси Y, применить к каждому слою размытие Гаусса с радиусом 10"></TextBlock>
-            </TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="160"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <TextBlock FontFamily="Verdana" TextWrapping="Wrap">
+                    <TextBlock Text="Примеры использования"></TextBlock>
+                    <StackPanel Margin="10,10,0,10">
+                        <TextBlock Text="select 0-5;" FontFamily="Consolas"></TextBlock>
+                        <TextBlock Text="move -30 50;" FontFamily="Consolas"></TextBlock>
+                        <TextBlock Text="blur 10;" FontFamily="Consolas"></TextBlock>
+                    </StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Выбрать слои от нулевого до пятого, передвинуть каждый выбранный слой на 30 против оси Х и на 50 по оси Y, применить к каждому слою размытие Гаусса с радиусом 10"></TextBlock>
+                </TextBlock>
             
+            </Grid>
+            <Grid >
+                <RichTextBox x:Name="CodeField" FontFamily="Consolas" TextChanged="CodeField_TextChanged_1"></RichTextBox>
+            </Grid>
         </Grid>
-        <Grid >
-            <TextBox FontFamily="Consolas"></TextBox>
+        <Grid Grid.Row="1">
+            <TextBlock Text="{Binding ErrorView}"></TextBlock>
         </Grid>
     </Grid>
 </Window>

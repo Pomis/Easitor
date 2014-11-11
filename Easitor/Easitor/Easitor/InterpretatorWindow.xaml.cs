@@ -19,9 +19,22 @@ namespace Easitor
     /// </summary>
     public partial class InterpretatorWindow : Window
     {
+        string myText;
+        InterpretatorViewModel Inter = new InterpretatorViewModel();
         public InterpretatorWindow()
         {
             InitializeComponent();
+            myText = new TextRange(CodeField.Document.ContentStart, CodeField.Document.ContentEnd).Text;
+            DataContext = Inter;
+        }
+
+        private void CodeField_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            
+            Inter.CheckSyntax(
+                new TextRange(CodeField.Document.ContentStart, CodeField.Document.ContentEnd)
+                .Text.ToString()
+                             );
         }
     }
 }

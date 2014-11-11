@@ -55,6 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="BrushModel.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="InterpretatorViewModel.cs" />
     <Compile Include="SelectModel.cs" />
     <Compile Include="CommonToolModel.cs" />
     <Compile Include="GlobalConstants.cs" />

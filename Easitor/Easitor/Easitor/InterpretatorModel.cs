@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Text.RegularExpressions;
 namespace Easitor
 {
-    public class InterpretatorModel
+    public class InterpretatorModel:INPC
     {
         List<AbstractFunction> Functions = new List<AbstractFunction>();
         static public List<Layer> SelectedLayers = new List<Layer>();
@@ -27,6 +27,23 @@ namespace Easitor
             }
         }
 
+        public void CheckSyntax(string Script)
+        {
+            Script = Regex.Replace(Script, @"\s+", " ");
+            ((InterpretatorViewModel)this).ErrorView = "";
+            string[] Steps = Script.Split(';');
+            string ErrorMessage = "";
+            foreach (string Step in Steps)
+            {
+                if (IsValide(Step, ref ErrorMessage))
+                {
+                    string[] Words = Step.Split(' ');
+                    ((InterpretatorViewModel)this).ErrorView += ErrorMessage;
+                }
+            }
+            
+         }
+
         void RunFunction(string FunctionName, string[] args) 
         {
             foreach (AbstractFunction Func in Functions)
@@ -45,19 +62,26 @@ namespace Easitor
         bool IsValide(string Step, ref string ErrorMessage) 
         {
             bool Valide = true;
-            string[] Words = Step.Split(' ');
-
-            bool FunctionExists = false;
-            foreach (AbstractFunction Function in Functions)
+            if (Step.Length >3)
             {
-                if (Function.FunctionName == Words[0])
-                    FunctionExists = true;
+                string[] Words = Step.Split(' ');
+                Words=Words.Where(n => !string.IsNullOrEmpty(n)).ToArray();
+                bool FunctionExists = false;
+                foreach (AbstractFunction Function in Functions)
+                {
+                    if (Function.FunctionName == Words[0])
+                        FunctionExists = true;
+                }
+                if (!FunctionExists)
+                {
+                    ErrorMessage = "Ошибка в команде: " + Step + " (Не существует функции " + Words[0] + ")\n";
+                }
             }
-            if (!FunctionExists)
+            else
             {
-                ErrorMessage = "Ошибка в команде: " + Step + " (Не существует функции " + Words[0] + ")";
+                Valide = false;
+                ErrorMessage = "";
             }
-
             return Valide;
 
         }
