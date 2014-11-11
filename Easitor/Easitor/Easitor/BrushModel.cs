@@ -57,11 +57,6 @@ namespace Easitor
             Model.SelectedLayer.BitMap = new WriteableBitmap(Renderer);
             //удаляем все старые кружочки.
             Model.SelectedLayer.CircleList.Clear();
-            //РОМА ИДИ СПАТЬ
-            //СПАТЬ
-            //СПАТЬ НЕЛЬЗЯ КОДИТЬ
-            //СПАТЬ, НЕЛЬЗЯ КОДИТЬ
-            //СПОКОЙНОЙ НОЧИ, СТУДИЯ!
         }
         public void MouseMove(MouseEventArgs e) 
         {

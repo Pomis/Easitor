@@ -24,6 +24,7 @@ namespace Easitor
         public InterpretatorWindow()
         {
             InitializeComponent();
+            Inter.LoadFunctions();
             myText = new TextRange(CodeField.Document.ContentStart, CodeField.Document.ContentEnd).Text;
             DataContext = Inter;
         }
@@ -35,6 +36,12 @@ namespace Easitor
                 new TextRange(CodeField.Document.ContentStart, CodeField.Document.ContentEnd)
                 .Text.ToString()
                              );
+        }
+
+        // Запуск
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Inter.Start();
         }
     }
 }

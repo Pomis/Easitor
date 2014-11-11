@@ -13,23 +13,48 @@
                 <ColumnDefinition Width="160"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-                <TextBlock FontFamily="Verdana" TextWrapping="Wrap">
-                    <TextBlock Text="Примеры использования"></TextBlock>
-                    <StackPanel Margin="10,10,0,10">
-                        <TextBlock Text="select 0-5;" FontFamily="Consolas"></TextBlock>
-                        <TextBlock Text="move -30 50;" FontFamily="Consolas"></TextBlock>
-                        <TextBlock Text="blur 10;" FontFamily="Consolas"></TextBlock>
-                    </StackPanel>
-                    <TextBlock TextWrapping="Wrap" Text="Выбрать слои от нулевого до пятого, передвинуть каждый выбранный слой на 30 против оси Х и на 50 по оси Y, применить к каждому слою размытие Гаусса с радиусом 10"></TextBlock>
-                </TextBlock>
-            
+                <TextBlock FontFamily="Verdana" TextWrapping="Wrap"><InlineUIContainer>
+            			<TextBlock Text="Примеры использования"/>
+            		</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+            			<StackPanel Margin="10,10,0,10">
+            				<TextBlock Text="select 0-5;" FontFamily="Consolas"/>
+            				<TextBlock Text="move -30 50;" FontFamily="Consolas"/>
+            				<TextBlock Text="blur 10;" FontFamily="Consolas"/>
+            			</StackPanel>
+            		</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+            			
+            		</InlineUIContainer><InlineUIContainer>
+            			<TextBlock TextWrapping="Wrap" Text="Выбрать слои от нулевого до пятого, передвинуть каждый выбранный слой на 30 против оси Х и на 50 по оси Y, применить к каждому слою размытие Гаусса с радиусом 10"/>
+            		</InlineUIContainer></TextBlock>
+                <Button Content="Button" Width="75" Margin="42,211,42,322.5" Click="Button_Click_1"/>
+
             </Grid>
             <Grid >
                 <RichTextBox x:Name="CodeField" FontFamily="Consolas" TextChanged="CodeField_TextChanged_1"></RichTextBox>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <TextBlock Text="{Binding ErrorView}"></TextBlock>
+            <!--Список ошибок и уведомлений-->
+                <ItemsControl ItemsSource="{Binding Path=ErrorList}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel>
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="20" Width="Auto">
+                                <Rectangle Width="Auto" Height="20" Fill="{Binding Background}"></Rectangle>
+                                <Image HorizontalAlignment="Left" Source="UI\ErrorIcon.png" Width="20" Height="20">
+                                </Image>
+                            <TextBlock Margin="25,0,0,0" FontFamily="Verdana" Text="{Binding ErrorView}"></TextBlock>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            <!--Список ошибок и уведомлений-->
         </Grid>
     </Grid>
 </Window>

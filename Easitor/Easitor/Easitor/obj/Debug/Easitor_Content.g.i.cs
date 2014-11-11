@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ui/pickertoolbright.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ui/pickertooldark.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ui/erroricon.png")]
 
 

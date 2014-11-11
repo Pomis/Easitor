@@ -51,7 +51,7 @@ namespace Easitor
         public void DealWithModel()
         {
             InterpretatorModel.SelectedLayers.Clear();
-            for (int i = Convert.ToInt16(Selection.Args[0].Split('-')[0]); i <= Convert.ToInt16(Selection.Args[0].Split('-')[2]);i++ )
+            for (int i = Convert.ToInt16(Selection.Args[0].Split('-')[0]); i <= Convert.ToInt16(Selection.Args[0].Split('-')[1]); i++)
             {
                 InterpretatorModel.SelectedLayers.Add(Selection.Model.LayerList[i]);
             }

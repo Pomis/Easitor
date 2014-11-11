@@ -25,3 +25,4 @@ Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.Pr
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.csproj.GenerateResource.Cache
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\InterpretatorWindow.baml
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\InterpretatorWindow.g.cs
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.csprojResolveAssemblyReference.cache

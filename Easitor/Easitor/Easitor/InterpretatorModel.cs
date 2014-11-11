@@ -8,9 +8,16 @@ namespace Easitor
 {
     public class InterpretatorModel:INPC
     {
+        public bool HasErrors
+        {
+            get { return (((InterpretatorViewModel)this).ErrorList.Count!=0); }
+        }
+
+        string ScriptText;
         List<AbstractFunction> Functions = new List<AbstractFunction>();
         static public List<Layer> SelectedLayers = new List<Layer>();
         public string ErrorMessage { get; set; }
+
         // Структура команды:
         // Function Arg1 Arg2 Arg3
         public void RunScript(string Script)
@@ -18,8 +25,7 @@ namespace Easitor
             string[] Steps = Script.Split(';');
             foreach (string Step in Steps)
             {
-                string ErrorMessage = "";
-                if (IsValide(Step, ref ErrorMessage))
+                if (IsValide(Step))
                 {
                     string[] Words = Step.Split(' ');
                     //
@@ -30,19 +36,37 @@ namespace Easitor
         public void CheckSyntax(string Script)
         {
             Script = Regex.Replace(Script, @"\s+", " ");
-            ((InterpretatorViewModel)this).ErrorView = "";
+            ScriptText = Script;
             string[] Steps = Script.Split(';');
-            string ErrorMessage = "";
+            ((InterpretatorViewModel)this).ErrorList.Clear();
             foreach (string Step in Steps)
             {
-                if (IsValide(Step, ref ErrorMessage))
+                if (IsValide(Step))
                 {
                     string[] Words = Step.Split(' ');
-                    ((InterpretatorViewModel)this).ErrorView += ErrorMessage;
+                    //((InterpretatorViewModel)this).ErrorView += ErrorMessage;
                 }
             }
             
          }
+
+        public void Start()
+        {
+            if (!HasErrors)
+            {
+                string[] Steps = ScriptText.Split(';');
+                ((InterpretatorViewModel)this).ErrorList.Clear();
+                foreach (string Step in Steps)
+                {
+                    if (IsValide(Step))
+                    {
+                        string[] Words = Step.Split(' ');
+                        string[] args = Words.Where(n => n!=Words[0]).ToArray();
+                        RunFunction(Words[0], args);
+                    }
+                }
+            }
+        }
 
         void RunFunction(string FunctionName, string[] args) 
         {
@@ -59,7 +83,7 @@ namespace Easitor
                 }
             }
         }
-        bool IsValide(string Step, ref string ErrorMessage) 
+        bool IsValide(string Step) 
         {
             bool Valide = true;
             if (Step.Length >3)
@@ -74,13 +98,15 @@ namespace Easitor
                 }
                 if (!FunctionExists)
                 {
-                    ErrorMessage = "Ошибка в команде: " + Step + " (Не существует функции " + Words[0] + ")\n";
+                    ErrorViewModel Err = new ErrorViewModel();
+                    Err.ErrorView= "Ошибка в команде: " + Step + " (Не существует функции " + Words[0] + ")\n";
+                    Err.Background = "#f7dcdc";
+                    ((InterpretatorViewModel)this).ErrorList.Add(Err);
                 }
             }
             else
             {
                 Valide = false;
-                ErrorMessage = "";
             }
             return Valide;
 
