@@ -55,6 +55,8 @@
     </ApplicationDefinition>
     <Compile Include="BrushModel.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="HistoryModel.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="InterpretatorViewModel.cs" />
     <Compile Include="SelectModel.cs" />
     <Compile Include="CommonToolModel.cs" />
@@ -67,11 +69,13 @@
     <Compile Include="Layer.cs" />
     <Compile Include="MoverToolModel.cs" />
     <Compile Include="OptionModel.cs" />
-    <Compile Include="PixelColor.cs" />
     <Compile Include="PlacableModel.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="TimeredActions.cs" />
     <Compile Include="ITool.cs" />
     <Compile Include="PickerModel.cs" />
+    <Compile Include="ToolCommand.cs" />
+    <Compile Include="ToolCommandViewModel.cs" />
     <Page Include="InterpretatorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,7 +113,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

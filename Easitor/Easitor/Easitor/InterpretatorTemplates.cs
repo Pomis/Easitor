@@ -63,11 +63,19 @@ namespace Easitor
         }
     }
 
-    //public class Blur : AbstractFunction, IFunction
-    //{
-    //    public void Init()
-    //    {
-    //        FunctionName = "blur";
-    //    }
-    //}
+    public class Blur : AbstractFunction, IFunction, IState
+    {
+        public void Init()
+        {
+            FunctionName = "blur";
+        }
+        public override void Overload() { }
+        public override void DealWithModel()
+        {
+            foreach (Layer L in InterpretatorModel.SelectedLayers)
+            {
+                L.BlurRadius = Convert.ToInt16(Args[0]);
+            }
+        }
+    }
 }

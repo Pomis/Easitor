@@ -71,6 +71,21 @@ namespace Easitor
         ObservableCollection<ITool> _ToolList = new ObservableCollection<ITool>();
         public ObservableCollection<ITool> ToolList { get { return _ToolList; } set { _ToolList = value; OnPropertyChanged("ToolList"); } }
 
+        ObservableCollection<ICommand> _CommandList = new ObservableCollection<ICommand>();
+        public ObservableCollection<ICommand> CommandList
+        {
+            get
+            {
+                return _CommandList;
+            }
+
+            set
+            {
+                _CommandList = value;
+                OnPropertyChanged("CommandList");
+            }
+        }
+
         public ITool SelectedTool;
 
         protected bool IsLeftPanelExpanding = false;
@@ -94,6 +109,7 @@ namespace Easitor
             ChooseLayer(FirstLayer);
             MakeStaticLink();
             InitializeSliders();
+            CommandList = HistoryModel.Instance.CommandHistory;
         }
         #endregion
         #region Методы

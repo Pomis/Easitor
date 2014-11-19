@@ -22,7 +22,6 @@ namespace Easitor
         {
             ElapsedTime++;
             MovePanels();
-            
         }
 
         void MovePanels()

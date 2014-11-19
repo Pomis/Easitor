@@ -8,6 +8,8 @@ namespace Easitor
 {
     public class CommonToolModel:INPC
     {
+        public ICommand Command = new ToolCommand();
+
         public string Name { get; set; }
         public EditorModel Model { get; set; }
         public Grid CoordinateSystem { get; set; }

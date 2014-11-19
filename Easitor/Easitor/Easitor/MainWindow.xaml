@@ -104,6 +104,25 @@
             <!--История-->
             <Grid Grid.Column="0">
                 <Rectangle Fill="#FF7E8A96" Width="Auto" Height="Auto"></Rectangle>
+                <ItemsControl ItemsSource="{Binding Path=CommandList}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="0,0,0,0" ScrollViewer.CanContentScroll="True">
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="40" Width="{Binding MAX_RIGHT_COLUMN_WIDTH}" Margin="0,0,0,0">
+                                <Rectangle Width="Auto" Height="Auto" Fill="{Binding Background}"></Rectangle>
+                                <Image HorizontalAlignment="Left" Source="{Binding Image}" Width="{Binding MAX_RIGHT_COLUMN_WIDTH}" Height="40" RenderTransformOrigin="0.8,0.8">
+                                </Image>
+                                <TextBlock Margin="50,0,0,0" VerticalAlignment="Center" FontFamily="Verdana" Text="{Binding CommandName}"></TextBlock>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Grid>
             <!--История-->
             
