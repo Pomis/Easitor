@@ -9,7 +9,10 @@ namespace Easitor
 {
     public class HistoryModel :Singleton<HistoryModel>
     {
-        private HistoryModel() { }
+        private HistoryModel()
+        {
+            CommandHistory.CollectionChanged += CommandHistory_CollectionChanged;
+        }
         private ObservableCollection<ICommand> commandHistory=new ObservableCollection<ICommand>();
         public ObservableCollection<ICommand> CommandHistory
         {
@@ -23,6 +26,41 @@ namespace Easitor
                 commandHistory = value;
                 OnPropertyChanged("CommandHistory");
             }
+        }
+
+        int Counter = 0;
+        private void CommandHistory_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            foreach (ICommand C in CommandHistory)
+            {
+                if (((ToolCommandViewModel)C) != null)
+                {
+                    ((ToolCommandViewModel)C).Background = "#00000000";
+                }
+            }
+            foreach (ICommand C in e.NewItems)
+            {
+                if (((ToolCommandViewModel)C) != null)
+                {
+                    ((ToolCommandViewModel)C).CommandIndex += ++Counter;
+                }
+            }
+            CommandHistory[CommandHistory.Count - 1].Select();
+        }
+
+        public void UndoUpTo(string Tag)
+        {
+            foreach (ICommand C in CommandHistory)
+            {
+
+                ((ToolCommandViewModel)C).Background = "";
+                if (((ToolCommandViewModel)C) != null&& ((ToolCommandViewModel)C).CommandIndex == Tag)
+                {
+                    C.Select();
+                    C.UnExecute();
+                }
+            }
+                
         }
     }
 }

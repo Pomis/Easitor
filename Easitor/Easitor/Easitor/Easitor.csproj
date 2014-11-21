@@ -53,8 +53,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HedgehogModel.cs" />
+    <Compile Include="RoughBrushModel.cs" />
+    <Compile Include="PolylineBrushModel.cs" />
     <Compile Include="BrushModel.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="Clone.cs" />
     <Compile Include="HistoryModel.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="InterpretatorViewModel.cs" />
@@ -149,6 +153,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="UI\ErrorIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI\DottedBrushBright.png" />
+    <Resource Include="UI\DottedBrushDark.png" />
+    <Resource Include="UI\HedgehogBright.png" />
+    <Resource Include="UI\HedgehogDark.png" />
+    <Resource Include="UI\RoughBrushDark.png" />
+    <Resource Include="UI\RoughBrushBright.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

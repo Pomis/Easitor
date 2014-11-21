@@ -117,6 +117,21 @@ namespace Easitor
         ObservableCollection<Circle> _CircleList = new ObservableCollection<Circle>();
         public ObservableCollection<Circle> CircleList { get { return _CircleList; } set { _CircleList = value; OnPropertyChanged("CircleList"); } }
 
+        ObservableCollection<Circle> _ContinuedCircleList = new ObservableCollection<Circle>();
+        public ObservableCollection<Circle> ContinuedCircleList { get { return _ContinuedCircleList; } set { _ContinuedCircleList = value; OnPropertyChanged("ContinuedCircleList"); } }
+
+        private PointCollection points = new PointCollection();
+
+        public PointCollection Points
+        {
+            get { return points; }
+            set
+            {
+                points = value;
+                OnPropertyChanged("Points");
+            }
+        }
+
         string _PolylinePoints="";
         public string PolylinePoints { get { return _PolylinePoints; } set { _PolylinePoints = value; } }
 
@@ -151,5 +166,17 @@ namespace Easitor
         }
 
         public void RenderThumbnail() { }
+
+        
+
+        public void SomeUpdateFunc()
+        {
+            PointCollection pc = new PointCollection();
+
+            pc.Add(new Point(100, 300));
+            pc.Add(new Point(200, 300));
+
+            this.Points = pc;
+        }
     }
 }

@@ -297,6 +297,11 @@ namespace Easitor
             
         }
 
+        public void UndoUpTo(string Tag)
+        {
+            HistoryModel.Instance.UndoUpTo(Tag);
+        }
+
 
         public void RunAutomator()
         {

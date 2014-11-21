@@ -10,19 +10,16 @@ using System.Windows.Media.Imaging;
 
 namespace Easitor
 {
-    public class BrushModel : CommonToolModel, ITool
+    public class HedgehogBrushModel : CommonToolModel, ITool
     {
-        double PrevX;
-        double PrevY;
-        double NowX;
-        double NowY;
+     
         bool IsPainting = false;
         MainWindow win;
-        public BrushModel()
+        public HedgehogBrushModel()
         {
-            Name = "DottedBrush";
-            Description = "Точечная кисточка";
-            Icon = "UI/DottedBrushDark.png";
+            Name = "Hedgehog";
+            Description = "Ёжик";
+            Icon = "UI/BrushDark.png";
             Color = GRAY_2;
         }
 
@@ -36,10 +33,7 @@ namespace Easitor
             ((ToolCommandViewModel)Command).Image = Icon;
             ((ToolCommandViewModel)Command).CommandName = Name;
 
-            //((ToolCommand)Command).LayerListBefore = new List<Layer>
-            //    (CloneClass.CloneObject<ObservableCollection<Layer>>(Model.LayerList));
-
-            Model.SelectedLayer.BrushOpacity = Model.sliderOpacity;
+             Model.SelectedLayer.BrushOpacity = Model.sliderOpacity;
             
             IsPainting = true;
 
@@ -47,8 +41,6 @@ namespace Easitor
             Circle AddingCircle = new Circle(Model.sliderColorView,Model.sliderRadius,Model.sliderBlur,Model.sliderOpacity, e.GetPosition(W.PaintArea).X-Model.SelectedLayer.X, e.GetPosition(W.PaintArea).Y-Model.SelectedLayer.Y);
             Model.SelectedLayer.CircleList.Add(AddingCircle);
 
-            PrevX = e.GetPosition(W.PaintArea).X - Model.SelectedLayer.X;
-            PrevY = e.GetPosition(W.PaintArea).Y - Model.SelectedLayer.Y;
         }
         public void FinishAction()
         {
@@ -59,6 +51,7 @@ namespace Easitor
             Model.SelectedLayer.BitMap = new WriteableBitmap(Renderer);
             // удаляем все старые кружочки.
             Model.SelectedLayer.CircleList.Clear();
+            Model.SelectedLayer.ContinuedCircleList.Clear();
             // Записываем в историю
             //((ToolCommand)Command).LayerListAfter=Model.LayerList.ToList();
             HistoryModel.Instance.CommandHistory.Add(Command);
@@ -73,9 +66,12 @@ namespace Easitor
                                                    Model.sliderOpacity,
                     e.GetPosition(win.PaintArea).X - Model.SelectedLayer.X,
                     e.GetPosition(win.PaintArea).Y - Model.SelectedLayer.Y);
-                Model.SelectedLayer.CircleList.Add(AddingCircle);
+                AddingCircle.X2 = Model.SelectedLayer.CircleList.Last().X;
+                AddingCircle.Y2 = Model.SelectedLayer.CircleList.Last().Y;
+                Model.SelectedLayer.ContinuedCircleList.Add(AddingCircle);
                 
             }
+
         }
     }
 }

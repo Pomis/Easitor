@@ -10,5 +10,7 @@ namespace Easitor
     {
         void Execute();
         void UnExecute();
+
+        void Select();
     }
 }

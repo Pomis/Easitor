@@ -54,6 +54,23 @@ namespace Easitor
             }
         }
 
+
+        string _CommandIndex;
+        public string CommandIndex
+        {
+            get
+            {
+                return _CommandIndex;
+            }
+
+            set
+            {
+                _CommandIndex = value;
+                OnPropertyChanged("CommandIndex");
+            }
+        }
+
+        
         
 
 

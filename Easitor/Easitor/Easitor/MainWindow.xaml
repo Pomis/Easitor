@@ -113,8 +113,8 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="40" Width="{Binding MAX_RIGHT_COLUMN_WIDTH}" Margin="0,0,0,0">
-                                <Rectangle Width="Auto" Height="Auto" Fill="{Binding Background}"></Rectangle>
+                            <Grid Tag="{Binding CommandIndex}" MouseLeftButtonDown="Grid_MouseLeftButtonDown" Height="40" Width="{Binding MAX_RIGHT_COLUMN_WIDTH}" Margin="0,0,0,0">
+                                <Rectangle Width="Auto" Height="40" Fill="{Binding Background}"></Rectangle>
                                 <Image HorizontalAlignment="Left" Source="{Binding Image}" Width="{Binding MAX_RIGHT_COLUMN_WIDTH}" Height="40" RenderTransformOrigin="0.8,0.8">
                                 </Image>
                                 <TextBlock Margin="50,0,0,0" VerticalAlignment="Center" FontFamily="Verdana" Text="{Binding CommandName}"></TextBlock>
@@ -167,12 +167,29 @@
                                                 <BlurEffect Radius="{Binding BlurRadius}"></BlurEffect>
                                             </Image.Effect>
                                         </Image>
+                                        <ItemsControl ItemsSource="{Binding ContinuedCircleList}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <Canvas>
+                                                    </Canvas>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Line Stroke="{Binding Color}" StrokeThickness="{Binding Width}"
+                                                          X1="{Binding X}"
+                                                          X2="{Binding X2}"
+                                                          Y1="{Binding Y}"
+                                                          Y2="{Binding Y2}"
+                                                          Opacity="1">
+                                                    </Line>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
                                         <ItemsControl ItemsSource="{Binding Path=CircleList}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <Canvas
-                                                        Opacity="{Binding BrushOpacity}"
-                                                        ></Canvas>
+                                                    <Canvas Opacity="{Binding BrushOpacity}"></Canvas>
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemContainerStyle>
@@ -184,18 +201,15 @@
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <Grid >
-                                                        
                                                         <Ellipse
-                                                    Fill="{Binding Color}"
-                                                    Width="{Binding Width}"
-                                                    Height="{Binding Height}">
+                                                            Fill="{Binding Color}"
+                                                            Width="{Binding Width}"
+                                                            Height="{Binding Height}">
                                                         </Ellipse>
                                                         <Grid.Effect>
                                                             <BlurEffect Radius="{Binding BlurRadius}"></BlurEffect>
                                                         </Grid.Effect>
-                                                        
                                                     </Grid>
-
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>

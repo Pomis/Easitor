@@ -114,5 +114,12 @@ namespace Easitor
         {
             Model.RunAutomator();
         }
+
+        // Выбор действия из истории
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Пока что не робит
+            Model.UndoUpTo((sender as Grid).Tag.ToString());
+        }
     }
 }
