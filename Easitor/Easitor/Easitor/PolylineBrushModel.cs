@@ -38,7 +38,7 @@ namespace Easitor
             IsPainting = true;
 
             //рисуем кружочки!
-            Circle AddingCircle = new Circle(Model.sliderColorView,Model.sliderRadius,Model.sliderBlur,Model.sliderOpacity, e.GetPosition(W.PaintArea).X-Model.SelectedLayer.X, e.GetPosition(W.PaintArea).Y-Model.SelectedLayer.Y);
+            Circle AddingCircle = new Circle(Model.sliderColorView,Model.sliderRadius,Model.sliderBlur,Model.sliderOpacity, e.GetPosition(W.PaintArea).X-Model.SelectedLayer.X , e.GetPosition(W.PaintArea).Y-Model.SelectedLayer.Y);
             Model.SelectedLayer.CircleList.Add(AddingCircle);
 
         }
@@ -55,24 +55,31 @@ namespace Easitor
             // Записываем в историю
             //((ToolCommand)Command).LayerListAfter=Model.LayerList.ToList();
             HistoryModel.Instance.CommandHistory.Add(Command);
+            HistoryModel.Instance.CheckIfTooLong();
         }
         public void MouseMove(MouseEventArgs e) 
         {
             if (IsPainting)
             {
 
-                int x = Convert.ToInt16(e.GetPosition(win.PaintArea).X - Model.SelectedLayer.X + Model.sliderRadius / 2);
-                int y = Convert.ToInt16(e.GetPosition(win.PaintArea).Y - Model.SelectedLayer.Y + Model.sliderRadius / 2);
+                int x = Convert.ToInt16(e.GetPosition(win.PaintArea).X - Model.SelectedLayer.X );
+                int y = Convert.ToInt16(e.GetPosition(win.PaintArea).Y - Model.SelectedLayer.Y );
                 Circle AddingCircle = new Circle(Model.sliderColorView,
                                                         Model.sliderRadius,
                                                       Model.sliderBlur,
                                                    Model.sliderOpacity,
                                                                         x,
                                                                         y);
-                AddingCircle.X2 = Model.SelectedLayer.CircleList.Last().X + Model.sliderRadius / 2;
-                AddingCircle.Y2 = Model.SelectedLayer.CircleList.Last().Y + Model.sliderRadius / 2;
+                Circle AddingLine = new Circle(Model.sliderColorView,
+                                                        Model.sliderRadius,
+                                                      Model.sliderBlur,
+                                                   Model.sliderOpacity,
+                                                                        x+ Model.sliderRadius/2,
+                                                                        y+ Model.sliderRadius/2);
+                AddingLine.X2 =Convert.ToInt16( Model.SelectedLayer.CircleList.Last().X + Model.sliderRadius/2 );
+                AddingLine.Y2 = Convert.ToInt16( Model.SelectedLayer.CircleList.Last().Y + Model.sliderRadius/2);
                 Model.SelectedLayer.CircleList.Add(AddingCircle);
-                Model.SelectedLayer.ContinuedCircleList.Add(AddingCircle);
+                Model.SelectedLayer.ContinuedCircleList.Add(AddingLine);
                 
             }
 

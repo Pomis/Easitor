@@ -42,6 +42,9 @@ namespace Easitor
 
         #endregion
 
+        string _SelectedColor;
+        public string SelectedColor { get { return _SelectedColor; } set { _SelectedColor = value; OnPropertyChanged("SelectedColor"); } }
+
         public System.Windows.Controls.Grid RenderGrid;
 
         public int LayersAdded = 0;
@@ -214,11 +217,23 @@ namespace Easitor
             LayerList.Add(L);
             ChooseLayer(L);
         }
+
+        // Скрыть или показать слой
+        public void HideOrUnhide(string LayerToolTip)
+        {
+            foreach (Layer L in RevercedLayerList)
+            {
+                if (L.ToolTip == LayerToolTip)
+                {
+                    L.HideOrUnhide();
+                }
+            }
+        }
         public void ImportImage()
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-            dlg.DefaultExt = ".jpg";
+            dlg.DefaultExt = ".png";
             dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
 
             Nullable<bool> result = dlg.ShowDialog();

@@ -121,5 +121,12 @@ namespace Easitor
             // Пока что не робит
             Model.UndoUpTo((sender as Grid).Tag.ToString());
         }
+
+
+        // Скрыть или показать слой
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Model.HideOrUnhide(((Image)sender).Tag.ToString()); //EyeImage
+        }
     }
 }

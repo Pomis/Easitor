@@ -24,6 +24,7 @@ namespace Easitor
             set
             {
                 commandHistory = value;
+                
                 OnPropertyChanged("CommandHistory");
             }
         }
@@ -38,7 +39,7 @@ namespace Easitor
                     ((ToolCommandViewModel)C).Background = "#00000000";
                 }
             }
-            foreach (ICommand C in e.NewItems)
+            if (e.NewItems!=null) foreach (ICommand C in e.NewItems)
             {
                 if (((ToolCommandViewModel)C) != null)
                 {
@@ -62,5 +63,14 @@ namespace Easitor
             }
                 
         }
+
+        public void CheckIfTooLong()
+        {
+            if (CommandHistory.Count >= 15)
+            {
+                CommandHistory.Remove(CommandHistory[0]);
+            }
+        }
+
     }
 }

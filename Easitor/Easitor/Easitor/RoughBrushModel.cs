@@ -55,6 +55,7 @@ namespace Easitor
             // Записываем в историю
             //((ToolCommand)Command).LayerListAfter=Model.LayerList.ToList();
             HistoryModel.Instance.CommandHistory.Add(Command);
+            HistoryModel.Instance.CheckIfTooLong();
         }
         public void MouseMove(MouseEventArgs e) 
         {

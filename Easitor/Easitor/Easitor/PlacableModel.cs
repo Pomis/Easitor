@@ -36,6 +36,13 @@ namespace Easitor
             set { _y2 = value; OnPropertyChanged("Y2"); }
         }
 
+        private string _Margins;
+        public string Margins
+        {
+            get { return _Margins; }
+            set { _Margins = value; OnPropertyChanged(Margins); }
+        }
+
         private double _width;
         public double Width
         {
