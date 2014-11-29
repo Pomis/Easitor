@@ -71,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HedgehogModel.cs" />
     <Compile Include="RoughBrushModel.cs" />
     <Compile Include="PolylineBrushModel.cs" />
@@ -98,6 +101,10 @@
     <Compile Include="PickerModel.cs" />
     <Compile Include="ToolCommand.cs" />
     <Compile Include="ToolCommandViewModel.cs" />
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InterpretatorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,6 +191,9 @@
   <ItemGroup>
     <Resource Include="UI\Eye.png" />
     <Resource Include="UI\EyePressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

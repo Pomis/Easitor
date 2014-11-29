@@ -157,7 +157,6 @@ namespace Easitor
             }
         }
 
-
         public void MoveSlider(double Factor, string ToolTip)
         {
             if (ToolTip == "Радиус выбранного интрумента")
@@ -310,6 +309,28 @@ namespace Easitor
             _L.Background = GRAY_2;
             SelectedLayer = _L;
             
+        }
+
+        public void DeleteSelectedLayer()
+        {
+            RevercedLayerList.Remove(SelectedLayer);
+            LayerList.Remove(SelectedLayer);
+            SelectedLayer.Destroy();
+            SelectedLayer = null;
+            ChooseLayer(RevercedLayerList[0]);
+        }
+
+        // Передвинуть выбранный слой на топ
+        public void MoveToTop()
+        {
+            RevercedLayerList.Move(RevercedLayerList.IndexOf(SelectedLayer), 0);
+            LayerList.Move(LayerList.IndexOf(SelectedLayer), LayerList.Count - 1);
+        }
+        //  Передвинуть выбранный слой на фон
+        public void MoveToBackground()
+        {
+            RevercedLayerList.Move(RevercedLayerList.IndexOf(SelectedLayer), RevercedLayerList.Count-1);
+            LayerList.Move(LayerList.IndexOf(SelectedLayer), 0);
         }
 
         public void UndoUpTo(string Tag)

@@ -99,12 +99,6 @@ namespace Easitor
             Model.MoveSlider((double)e.GetPosition(sender as Grid).X / 200, (sender as Grid).ToolTip.ToString());
         }
 
-        //движение мыши по канвасу для определения Visual-объекта для рендера по завершении рисования кистью
-        //private void Canvas_MouseMove_1(object sender, MouseEventArgs e)
-        //{
-            
-        //}
-
         private void Grid_Loaded_1(object sender, RoutedEventArgs e)
         {
             Model.CreateGridList((sender as Grid));
@@ -127,6 +121,38 @@ namespace Easitor
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Model.HideOrUnhide(((Image)sender).Tag.ToString()); //EyeImage
+        }
+
+        // Новый слой (вызов из меню)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Model.NewLayer();
+        }
+
+        // Удалить выбранный слой (вызов из меню)
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            Model.DeleteSelectedLayer();
+        }
+        // Передвинуть выбранный слой на топ (вызов из меню)
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            Model.MoveToTop();
+        }
+        // Передвинуть выбранный слой на фон (вызов из меню)
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e)
+        {
+            Model.MoveToBackground();
+        }
+        // Свернуть
+        private void MenuItem_Click_8(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        // О программе (вызов из меню)
+        private void MenuItem_Click_9(object sender, RoutedEventArgs e)
+        {
+            (new About()).Show();
         }
     }
 }

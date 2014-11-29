@@ -1,0 +1,15 @@
+﻿<Window x:Class="Easitor.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Easitor"
+        mc:Ignorable="d"
+        Title="О программе Easitor" Height="290" Width="340" WindowStyle="ToolWindow">
+    <StackPanel HorizontalAlignment="Center">
+        <Image Source="UI/Icon.png" Height="150" Width="150"  Margin="0,10,0,0"></Image>
+        <TextBlock HorizontalAlignment="Center" FontSize="23" FontWeight="Bold">Easitor</TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontSize="14">Версия 0.0.2 RC</TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="14">Copyright © 2014 Исмагилов Роман</TextBlock>
+     </StackPanel>
+</Window>

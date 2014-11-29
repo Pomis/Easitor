@@ -40,9 +40,14 @@ namespace Easitor
             Y = 0;
             ToolTip = (1+Model.LayersAdded++).ToString();
         }
+        public void Destroy() {
+            BitMap = null;
+
+        }
+
         #endregion
         #region Поля
-        
+
         WriteableBitmap _BitMap;
         public WriteableBitmap BitMap { get { return _BitMap; } set { _BitMap = value; OnPropertyChanged("BitMap"); } }
 

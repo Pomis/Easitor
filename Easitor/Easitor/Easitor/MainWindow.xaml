@@ -19,12 +19,12 @@
             </Grid.ColumnDefinitions>
             <Menu Grid.Column="0" VerticalAlignment="Center" Background="Transparent" Foreground="#FF656870" FontFamily="Verdana" FontSize="14">
                 <MenuItem FontWeight="Bold" Header="Easitor">
-                    <MenuItem FontWeight="Normal" Header="О программе Easitor"></MenuItem>
+                    <MenuItem FontWeight="Normal" Header="О программе Easitor" Click="MenuItem_Click_9"></MenuItem>
                     <MenuItem FontWeight="Normal" Header="Справка"></MenuItem>
                     <Separator></Separator>
                     <MenuItem FontWeight="Normal" Header="Настройки"></MenuItem>
                     <Separator></Separator>
-                    <MenuItem FontWeight="Normal" Header="Выход"></MenuItem>
+                    <MenuItem FontWeight="Normal" Header="Выход" Click="MenuItem_Click_1"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Файл">
                     <MenuItem Header="Новый проект"></MenuItem>
@@ -35,13 +35,11 @@
                     <MenuItem Header="Сохранить проект"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Слой">
-                    <MenuItem Header="Новый слой"></MenuItem>
-                    <MenuItem Header="Удалить выбранный слой"></MenuItem>
+                    <MenuItem Header="Новый слой" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Удалить выбранный слой" Click="MenuItem_Click_5"></MenuItem>
                     <Separator></Separator>
-                    <MenuItem Header="На задний план"></MenuItem>
-                    <MenuItem Header="На передний план"></MenuItem>
-                    <MenuItem Header="Вверх"></MenuItem>
-                    <MenuItem Header="Вниз"></MenuItem>
+                    <MenuItem Header="На задний план" Click="MenuItem_Click_7"></MenuItem>
+                    <MenuItem Header="На передний план" Click="MenuItem_Click_6"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Обработка">
                     <MenuItem Header="Размытие Гаусса" Click="MenuItem_Click_3"></MenuItem>
@@ -65,7 +63,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
             <Menu Grid.Column="2" VerticalAlignment="Center" Background="#FF656870" Foreground="#FFDCE0E3" FontFamily="Verdana" FontSize="14">
-                <MenuItem Header="—"></MenuItem>
+                <MenuItem Header="—" Click="MenuItem_Click_8"></MenuItem>
                 <MenuItem Header="X" Click="MenuItem_Click_1"></MenuItem>
             </Menu>
         </Grid>

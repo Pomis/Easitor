@@ -73,3 +73,6 @@ Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\ro\Xceed.W
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\About.g.cs
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor_MarkupCompile.lref
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\About.baml
