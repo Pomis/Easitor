@@ -1,0 +1,10 @@
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\bin\Debug\EasitorTests.dll
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\bin\Debug\EasitorTests.pdb
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\bin\Debug\Easitor.exe
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\bin\Debug\WriteableBitmapEx.Wpf.dll
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\bin\Debug\Easitor.pdb
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\bin\Debug\WriteableBitmapEx.Wpf.pdb
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\bin\Debug\WriteableBitmapEx.Wpf.xml
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\obj\Debug\EasitorTests.csprojResolveAssemblyReference.cache
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\obj\Debug\EasitorTests.dll
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\EasitorTests\obj\Debug\EasitorTests.pdb

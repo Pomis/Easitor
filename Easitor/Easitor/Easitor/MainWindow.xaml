@@ -20,19 +20,19 @@
             <Menu Grid.Column="0" VerticalAlignment="Center" Background="Transparent" Foreground="#FF656870" FontFamily="Verdana" FontSize="14">
                 <MenuItem FontWeight="Bold" Header="Easitor">
                     <MenuItem FontWeight="Normal" Header="О программе Easitor" Click="MenuItem_Click_9"></MenuItem>
-                    <MenuItem FontWeight="Normal" Header="Справка"></MenuItem>
+                    <MenuItem FontWeight="Normal" IsEnabled="False" Header="Справка"></MenuItem>
                     <Separator></Separator>
-                    <MenuItem FontWeight="Normal" Header="Настройки"></MenuItem>
+                    <MenuItem FontWeight="Normal" IsEnabled="False" Header="Настройки"></MenuItem>
                     <Separator></Separator>
                     <MenuItem FontWeight="Normal" Header="Выход" Click="MenuItem_Click_1"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Файл">
                     <MenuItem Header="Новый проект" Click="MenuItem_Click_10"></MenuItem>
+                    <MenuItem Header="Сохранить проект" Click="MenuItem_Click_11"></MenuItem>
                     <MenuItem Header="Открыть проект" Click="MenuItem_Click_12"></MenuItem>
                     <Separator></Separator>
                     <MenuItem Header="Открыть изображение" Click="MenuItem_Click_2"></MenuItem>
                     <MenuItem Header="Сохранить как..."></MenuItem>
-                    <MenuItem Header="Сохранить проект" Click="MenuItem_Click_11"></MenuItem>
                     
                 </MenuItem>
                 <MenuItem Header="Слой">

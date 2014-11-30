@@ -339,18 +339,32 @@ namespace Easitor
             }
             if (IsOK) Grids.Add(Grid);
         }
-
+        public CustomFileDialog DialogWindow;
         public void Save()
         {
-            FileOperationsModel Saver = new FileOperationsModel();
-            Saver.Save("test.dll");
+            
+            DialogWindow = new CustomFileDialog(DialogMode.Save);
+            DialogWindow.Show();
+
+           
         }
 
         public void Load()
         {
-            FileOperationsModel Saver = new FileOperationsModel();
-            Saver.DeserializeObject("test.dll");
-            ChooseLayer(LayerList[0]);
+            //ProjectEncoderModel Saver = new ProjectEncoderModel();
+            //Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            //dlg.InitialDirectory = "";
+            //dlg.DefaultExt = ".ead";
+            //dlg.Filter = "Easitor Document Files (*.ead)|*.ead";
+            //Nullable<bool> result = dlg.ShowDialog();
+            //if (result == true)
+            //{
+                //Saver.DeserializeObject(dlg.FileName);
+                //ChooseLayer(LayerList[0]);
+            DialogWindow = new CustomFileDialog(DialogMode.Open);
+            DialogWindow.Show();
+
+            
         }
         #endregion
 
@@ -368,6 +382,7 @@ namespace Easitor
             NewDocumentCreation(); // Запуск события
             LayerList.Clear();
             RevercedLayerList.Clear();
+            //CommandList.Clear();
             LayersAdded = 0;
             Layer FirstLayer = new Layer(this);
             ChooseLayer(FirstLayer);

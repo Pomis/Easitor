@@ -44,17 +44,19 @@ namespace Easitor
         }
         public void FinishAction()
         {
-            
-            IsPainting = false;
-            RenderTargetBitmap Renderer = new RenderTargetBitmap((int)Model.SelectedLayer.BitMap.Width, (int)Model.SelectedLayer.BitMap.Height, 96, 96, PixelFormats.Default);
-            Renderer.Render(Model.RenderGrid);
-            Model.SelectedLayer.BitMap = new WriteableBitmap(Renderer);
-            // удаляем все старые кружочки.
-            Model.SelectedLayer.CircleList.Clear();
-            Model.SelectedLayer.ContinuedCircleList.Clear();
-            // Записываем в историю
-            //((ToolCommand)Command).LayerListAfter=Model.LayerList.ToList();
-            HistoryModel.Instance.CommandHistory.Add(Command);
+            if (IsPainting)
+            {
+                IsPainting = false;
+                RenderTargetBitmap Renderer = new RenderTargetBitmap((int)Model.SelectedLayer.BitMap.Width, (int)Model.SelectedLayer.BitMap.Height, 96, 96, PixelFormats.Default);
+                Renderer.Render(Model.RenderGrid);
+                Model.SelectedLayer.BitMap = new WriteableBitmap(Renderer);
+                // удаляем все старые кружочки.
+                Model.SelectedLayer.CircleList.Clear();
+                Model.SelectedLayer.ContinuedCircleList.Clear();
+                // Записываем в историю
+                //((ToolCommand)Command).LayerListAfter=Model.LayerList.ToList();
+                HistoryModel.Instance.CommandHistory.Add(Command);
+            }
         }
         public void MouseMove(MouseEventArgs e) 
         {

@@ -79,3 +79,5 @@ Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\WriteableB
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\WriteableBitmapEx.Wpf.pdb
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\WriteableBitmapEx.Wpf.xml
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.csprojResolveAssemblyReference.cache
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\CustomFileDialog.baml
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\CustomFileDialog.g.cs

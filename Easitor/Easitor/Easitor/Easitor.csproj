@@ -77,7 +77,11 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FileOperationsModel.cs" />
+    <Compile Include="CustomFileDialog.xaml.cs">
+      <DependentUpon>CustomFileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomFileDialogModel.cs" />
+    <Compile Include="ProjectEncoderModel.cs" />
     <Compile Include="HedgehogModel.cs" />
     <Compile Include="RoughBrushModel.cs" />
     <Compile Include="PolylineBrushModel.cs" />
@@ -106,6 +110,10 @@
     <Compile Include="ToolCommand.cs" />
     <Compile Include="ToolCommandViewModel.cs" />
     <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomFileDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +154,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,0 +1,43 @@
+﻿<Window x:Class="Easitor.CustomFileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Title}" Height="300" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#A4AEB9">
+            <WrapPanel Margin="5,5,5,5" VerticalAlignment="Center">
+                <TextBlock Foreground="#DCE0E3" VerticalAlignment="Bottom" FontSize="23" FontFamily="Verdana" Text="../Easitor/Save/"></TextBlock>
+                <TextBox Background="#A4AEB9" Foreground="#7E8A96" BorderThickness="0" Width="Auto" FontSize="23" FontFamily="Verdana" Text="{Binding SelectedFileName}"></TextBox>
+                <TextBlock Foreground="#DCE0E3" VerticalAlignment="Bottom" FontSize="23" FontFamily="Verdana" Text=".ead"></TextBlock>
+            </WrapPanel>
+            <Button Margin="5,5,5,5" Background="Transparent" BorderBrush="#656870" Click="Button_Click_1" BorderThickness="1" HorizontalAlignment="Right">
+                <TextBlock Foreground="#656870" VerticalAlignment="Top" FontSize="23" FontFamily="Verdana"  Text="{Binding ButtonText}"></TextBlock>
+                
+            </Button>
+        </Grid>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <ItemsControl Background="#656870"  ItemsSource="{Binding FileList}" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel ScrollViewer.CanContentScroll="True">
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                        <Grid Width="180" Height="Auto" Background="{Binding Background}" MouseLeftButtonDown="Grid_MouseLeftButtonDown_1" Tag="{Binding FileName}">
+                            <Rectangle Stroke="#A4AEB9" StrokeThickness="3" Width="Auto" Height="Auto" Margin="5,5,5,5"></Rectangle>
+                            <StackPanel Margin="10,10,10,10">
+                                <Image HorizontalAlignment="Center" Source="UI/Icon.png" Height="120" Width="120"></Image>
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Verdana" Foreground="{Binding Foreground}" Text="{Binding FileName}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>
