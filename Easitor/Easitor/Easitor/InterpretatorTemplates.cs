@@ -63,6 +63,28 @@ namespace Easitor
         }
     }
 
+    public class Visibilty : AbstractFunction, IFunction, IState
+    {
+        public void Init()
+        {
+            FunctionName = "visible";
+        }
+        public override void Overload(){}
+        public override void DealWithModel()
+        {
+            if (Args[0]=="1")
+            foreach (Layer L in InterpretatorModel.SelectedLayers)
+            {
+                L.Unhide();
+            }
+            else if (Args[0] == "0")
+            foreach (Layer L in InterpretatorModel.SelectedLayers)
+            {
+                L.Hide();
+            }
+        }
+    }
+
     public class Blur : AbstractFunction, IFunction, IState
     {
         public void Init()

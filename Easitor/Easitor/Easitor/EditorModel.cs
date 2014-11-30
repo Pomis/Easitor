@@ -96,6 +96,12 @@ namespace Easitor
         protected bool IsRightPanelExpanding = false;
         protected bool IsRightPanelShrinking = false;
         #endregion
+        #region Делегаты и события
+        public delegate void NewDocumentEventHandler();
+        public delegate void EasterEggEventHandler();
+        public event EasterEggEventHandler LogoClicked;
+        public event NewDocumentEventHandler NewDocumentCreation;
+        #endregion
         #region Статическая ссылка
         static public EditorModel StaticModel;
         void MakeStaticLink()
@@ -103,7 +109,6 @@ namespace Easitor
             StaticModel = this;
         }
         #endregion
-
         #region Инициализация
         public EditorModel()
         {
@@ -116,6 +121,7 @@ namespace Easitor
         }
         #endregion
         #region Методы
+        #region Панели инструментов
         public void MoveLeftPanel()
         {
             if (LeftColumnWidth == 0 || IsLeftPanelShrinking)
@@ -142,11 +148,10 @@ namespace Easitor
                 IsRightPanelShrinking = true;
             }
         }
-
         // Выбрать инструмент по описанию
         public void SelectTool(string _Description)
         {
-            if (SelectedTool!=null)SelectedTool.Deselect();
+            if (SelectedTool != null) SelectedTool.Deselect();
             foreach (ITool tool in ToolList)
             {
                 if (tool.Description == _Description)
@@ -167,7 +172,7 @@ namespace Easitor
             }
             else if (ToolTip == "Непрозрачность наносимого изображения")
             {
-                sliderOpacity = Factor*1.1;
+                sliderOpacity = Factor * 1.1;
                 if (Factor * 1.1 < 1) sliderOpacityView = "Непрозрачность: " + Factor * 110 + "%";
                 else sliderOpacityView = "Непрозрачность: 100%";
                 sliderOpacityWidth = Factor * 200;
@@ -206,17 +211,17 @@ namespace Easitor
 
         public void Blur()
         {
-            if(SelectedLayer!=null)
+            if (SelectedLayer != null)
                 SelectedLayer.BlurRadius = 5;
         }
+        #endregion
 
+        #region Работа со слоями
         public void NewLayer()
         {
             Layer L = new Layer(this);
-            LayerList.Add(L);
             ChooseLayer(L);
         }
-
         // Скрыть или показать слой
         public void HideOrUnhide(string LayerToolTip)
         {
@@ -228,6 +233,61 @@ namespace Easitor
                 }
             }
         }
+        public void ChooseLayer(string _ToolTip)
+        {
+            foreach (Layer L in LayerList)
+            {
+                L.Background = "";
+                if (L.ToolTip == _ToolTip)
+                {
+                    L.Background = GRAY_2;
+                    SelectedLayer = L;
+                    foreach (Grid grid in Grids)
+                    {
+                        if (SelectedLayer != null && grid.Tag.ToString() == SelectedLayer.ToolTip)
+                        {
+                            RenderGrid = grid;
+                        }
+                    }
+                }
+            }
+        }
+        public void ChooseLayer(Layer _L)
+        {
+            foreach (Layer L in LayerList)
+            {
+                L.Background = "";
+
+            }
+            _L.Background = GRAY_2;
+            SelectedLayer = _L;
+
+        }
+
+        public void DeleteSelectedLayer()
+        {
+            RevercedLayerList.Remove(SelectedLayer);
+            LayerList.Remove(SelectedLayer);
+            SelectedLayer.Destroy();
+            SelectedLayer = null;
+            ChooseLayer(RevercedLayerList[0]);
+        }
+
+        // Передвинуть выбранный слой на топ
+        public void MoveToTop()
+        {
+            RevercedLayerList.Move(RevercedLayerList.IndexOf(SelectedLayer), 0);
+            LayerList.Move(LayerList.IndexOf(SelectedLayer), LayerList.Count - 1);
+        }
+        //  Передвинуть выбранный слой на фон
+        public void MoveToBackground()
+        {
+            RevercedLayerList.Move(RevercedLayerList.IndexOf(SelectedLayer), RevercedLayerList.Count - 1);
+            LayerList.Move(LayerList.IndexOf(SelectedLayer), 0);
+        }
+        #endregion
+
+        #region Работа с изображениями, файлами
         public void ImportImage()
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -280,71 +340,51 @@ namespace Easitor
             if (IsOK) Grids.Add(Grid);
         }
 
-        public void ChooseLayer(string _ToolTip)
+        public void Save()
         {
-            foreach (Layer L in LayerList)
-            {
-                L.Background = "";
-                if (L.ToolTip == _ToolTip)
-                {
-                    L.Background = GRAY_2;
-                    SelectedLayer = L;
-                    foreach (Grid grid in Grids)
-                    {
-                        if (SelectedLayer != null && grid.Tag.ToString() == SelectedLayer.ToolTip)
-                        {
-                            RenderGrid = grid;
-                        }
-                    }
-                }
-            }
-        }
-        public void ChooseLayer(Layer _L)
-        {
-            foreach (Layer L in LayerList)
-            {
-                L.Background = "";
-                
-            }
-            _L.Background = GRAY_2;
-            SelectedLayer = _L;
-            
+            FileOperationsModel Saver = new FileOperationsModel();
+            Saver.Save("test.dll");
         }
 
-        public void DeleteSelectedLayer()
+        public void Load()
         {
-            RevercedLayerList.Remove(SelectedLayer);
-            LayerList.Remove(SelectedLayer);
-            SelectedLayer.Destroy();
-            SelectedLayer = null;
-            ChooseLayer(RevercedLayerList[0]);
+            FileOperationsModel Saver = new FileOperationsModel();
+            Saver.DeserializeObject("test.dll");
+            ChooseLayer(LayerList[0]);
         }
+        #endregion
 
-        // Передвинуть выбранный слой на топ
-        public void MoveToTop()
-        {
-            RevercedLayerList.Move(RevercedLayerList.IndexOf(SelectedLayer), 0);
-            LayerList.Move(LayerList.IndexOf(SelectedLayer), LayerList.Count - 1);
-        }
-        //  Передвинуть выбранный слой на фон
-        public void MoveToBackground()
-        {
-            RevercedLayerList.Move(RevercedLayerList.IndexOf(SelectedLayer), RevercedLayerList.Count-1);
-            LayerList.Move(LayerList.IndexOf(SelectedLayer), 0);
-        }
-
+        #region Разное
         public void UndoUpTo(string Tag)
         {
             HistoryModel.Instance.UndoUpTo(Tag);
         }
 
+        
 
+        // Новый документ
+        public void NewDocument()
+        {
+            NewDocumentCreation(); // Запуск события
+            LayerList.Clear();
+            RevercedLayerList.Clear();
+            LayersAdded = 0;
+            Layer FirstLayer = new Layer(this);
+            ChooseLayer(FirstLayer);
+        }
+        public void ShowEasterEgg()
+        {
+            System.Windows.MessageBox.Show
+                ("Я — Албанский вирус, но в связи с очень плохим развитием технологии в моей стране к сожалению я не могу причинить вред вашему компьютеру.\n Пожалуйста будьте так любезны стереть один из важных файлов с вашего компьютера самостоятельно.\nЗаранее благодарен за понимание и сотрудничество.");
+        }
         public void RunAutomator()
         {
             InterpretatorWindow W = new InterpretatorWindow();
             W.Show();
             W.Focus();
         }
+        #endregion  
+
         #region Рефлексия
         public void GetTypes()
         {

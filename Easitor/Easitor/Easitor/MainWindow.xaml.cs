@@ -154,5 +154,20 @@ namespace Easitor
         {
             (new About()).Show();
         }
+        // Новый документ
+        private void MenuItem_Click_10(object sender, RoutedEventArgs e)
+        {
+            Model.NewDocument();
+        }
+        // Сохранить проект
+        private void MenuItem_Click_11(object sender, RoutedEventArgs e)
+        {
+            Model.Save();
+        }
+        // Открыть проект
+        private void MenuItem_Click_12(object sender, RoutedEventArgs e)
+        {
+            Model.Load();
+        }
     }
 }

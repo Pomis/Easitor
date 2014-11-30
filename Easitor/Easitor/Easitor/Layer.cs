@@ -9,9 +9,12 @@ using System.Windows.Media;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace Easitor
 {
-    public class Layer:PlacableModel
+    [Serializable]
+    public class Layer:PlacableModel, ISerializable
     {
         #region Конструкторы
         // Новый пустой слой.
@@ -26,7 +29,10 @@ namespace Easitor
             BitMap = new WriteableBitmap(new BitmapImage(new Uri("UI/Empty.png", UriKind.Relative)));
             Width = BitMap.Width;
             Height = BitMap.Height;
+            Model.NewDocumentCreation += Destroy;
         }
+
+
         // Загрузка изображения из файла в слой.
         public Layer(string path, EditorModel Model)
         {
@@ -39,6 +45,7 @@ namespace Easitor
             X = 0;
             Y = 0;
             ToolTip = (1+Model.LayersAdded++).ToString();
+            Model.NewDocumentCreation += Destroy;
         }
         public void Destroy() {
             BitMap = null;
@@ -146,6 +153,46 @@ namespace Easitor
                 Visibility = "Hidden";
                 EyeImage = "UI/Eye.png";
             }
+        }
+        public void Hide()
+        {
+            Visibility = "Hidden";
+            EyeImage = "UI/Eye.png";
+        }
+        public void Unhide()
+        {
+            Visibility = "Visible";
+            EyeImage = "UI/EyePressed.png";
+        }
+
+        #endregion
+        #region Сериализация
+        // десериализация из бинарника
+        public Layer(SerializationInfo sInfo, StreamingContext contextArg)
+        {
+            BitMap = new WriteableBitmap(new BitmapImage(new Uri("UI/Empty.png", UriKind.Relative)));
+            WriteableBitmapExtensions.FromByteArray(BitMap,(byte[])sInfo.GetValue("BitMap", typeof(byte[])));
+            Visibility = (string)sInfo.GetValue("Visibility", typeof(string));
+            ToolTip = (string)sInfo.GetValue("ToolTip", typeof(string));
+            X = (double)sInfo.GetValue("X", typeof(double));
+            Y = (double)sInfo.GetValue("Y", typeof(double));
+            Opacity = 1;// (double)sInfo.GetValue("Opacity", typeof(double));
+            Height = (double)sInfo.GetValue("Height", typeof(double));
+            Width = (double)sInfo.GetValue("Width", typeof(double));
+            BlurRadius = (double)sInfo.GetValue("BlurRadius", typeof(double));
+        }
+        // сериализация в бинарник
+        public void GetObjectData(SerializationInfo sInfo, StreamingContext contextArg)
+        {
+            sInfo.AddValue("BitMap", BitMap.ToByteArray());
+            sInfo.AddValue("Visibility", Visibility);
+            sInfo.AddValue("ToolTip", ToolTip);
+            sInfo.AddValue("X", X);
+            sInfo.AddValue("Y", Y);
+            sInfo.AddValue("Opacity", Opacity);
+            sInfo.AddValue("Height", Height);
+            sInfo.AddValue("Width", Width);
+            sInfo.AddValue("BlurRadius", BlurRadius);
         }
         #endregion
     }

@@ -10,7 +10,6 @@ namespace Easitor
 {
     public class PickerModel : CommonToolModel, ITool
     {
-        bool IsPainting = false;
         MainWindow win;
         public PickerModel()
         {
@@ -24,8 +23,6 @@ namespace Easitor
         {
             win = W;
             Model = EditorModel.StaticModel;
-            // Сначала делал через передачу ссылки на основной класс в аргумент, но потом дошло,
-            // что можно сделать через статику. На работу не влияет, но со статикой меньше лишнего кода
 
             // Рендерим все слои
             RenderTargetBitmap Renderer = new RenderTargetBitmap(1500, 1500, 96, 96, PixelFormats.Default);

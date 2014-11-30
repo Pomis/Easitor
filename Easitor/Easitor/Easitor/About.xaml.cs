@@ -19,9 +19,23 @@ namespace Easitor
     /// </summary>
     public partial class About : Window
     {
+        Random R = new Random();
+        public event EditorModel.EasterEggEventHandler LogoClicked;
         public About()
         {
             InitializeComponent();
+            LogoClicked += EditorModel.StaticModel.ShowEasterEgg;
+        }
+
+        public void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (R.NextDouble()<=0.4)
+                LogoClicked();
+        }
+
+        private void StaticModel_LogoClicked()
+        {
+            
         }
     }
 }

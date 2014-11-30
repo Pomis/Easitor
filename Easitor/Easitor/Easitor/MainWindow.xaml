@@ -27,12 +27,13 @@
                     <MenuItem FontWeight="Normal" Header="Выход" Click="MenuItem_Click_1"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Файл">
-                    <MenuItem Header="Новый проект"></MenuItem>
-                    <MenuItem Header="Открыть проект"></MenuItem>
+                    <MenuItem Header="Новый проект" Click="MenuItem_Click_10"></MenuItem>
+                    <MenuItem Header="Открыть проект" Click="MenuItem_Click_12"></MenuItem>
                     <Separator></Separator>
                     <MenuItem Header="Открыть изображение" Click="MenuItem_Click_2"></MenuItem>
                     <MenuItem Header="Сохранить как..."></MenuItem>
-                    <MenuItem Header="Сохранить проект"></MenuItem>
+                    <MenuItem Header="Сохранить проект" Click="MenuItem_Click_11"></MenuItem>
+                    
                 </MenuItem>
                 <MenuItem Header="Слой">
                     <MenuItem Header="Новый слой" Click="MenuItem_Click"></MenuItem>

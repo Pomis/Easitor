@@ -1,0 +1,7 @@
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\UnitTest\bin\Debug\UnitTest.dll
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\UnitTest\bin\Debug\UnitTest.pdb
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\UnitTest\bin\Debug\Easitor.exe
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\UnitTest\bin\Debug\Easitor.pdb
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\UnitTest\obj\Debug\UnitTest.dll
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\UnitTest\obj\Debug\UnitTest.pdb

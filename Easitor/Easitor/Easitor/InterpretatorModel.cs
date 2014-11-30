@@ -44,7 +44,6 @@ namespace Easitor
                 if (IsValide(Step))
                 {
                     string[] Words = Step.Split(' ');
-                    //((InterpretatorViewModel)this).ErrorView += ErrorMessage;
                 }
             }
             

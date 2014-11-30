@@ -25,7 +25,6 @@ Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.Pr
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.csproj.GenerateResource.Cache
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\InterpretatorWindow.baml
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\InterpretatorWindow.g.cs
-Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.csprojResolveAssemblyReference.cache
 Y:\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\Easitor.exe.config
 Y:\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.exe
 Y:\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.pdb
@@ -76,3 +75,7 @@ Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\zh-Hans\Xc
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\About.g.cs
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor_MarkupCompile.lref
 Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\About.baml
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\WriteableBitmapEx.Wpf.dll
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\WriteableBitmapEx.Wpf.pdb
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\bin\Debug\WriteableBitmapEx.Wpf.xml
+Z:\Users\romanismagilov\GitHub\main\Easitor\Easitor\Easitor\obj\Debug\Easitor.csprojResolveAssemblyReference.cache
