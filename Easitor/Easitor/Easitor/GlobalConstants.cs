@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Глобальные постоянные
+    /// </summary>
     public class GlobalConstants
     {
         #region Постоянные

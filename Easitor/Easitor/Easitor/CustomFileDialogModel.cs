@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Диалоговое окно загрузки/сохранения
+    /// </summary>
     public class CustomFileDialogModel:INPC
     {
         ObservableCollection<EadFile> _FileList = new ObservableCollection<EadFile>();

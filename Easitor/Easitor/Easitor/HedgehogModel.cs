@@ -10,6 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Кисточка - ежик
+    /// </summary>
     public class HedgehogBrushModel : CommonToolModel, ITool
     {
      

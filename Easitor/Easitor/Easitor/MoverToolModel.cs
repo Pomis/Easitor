@@ -7,6 +7,9 @@ using System.Windows.Input;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Инструмент-двигалка
+    /// </summary>
     public class MoverToolModel : CommonToolModel, ITool
     {
         private double TempX = 0;

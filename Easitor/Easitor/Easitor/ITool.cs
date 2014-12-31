@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 namespace Easitor
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ITool
     {
         string Name { get; set; }

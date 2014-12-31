@@ -7,6 +7,9 @@ using System.Windows.Threading;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Действия, выполняемые по таймеру
+    /// </summary>
     public class TimeredActions:EditorModel
     {
         DispatcherTimer Timer = new DispatcherTimer();

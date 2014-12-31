@@ -14,7 +14,9 @@ namespace Easitor
     {
         void DealWithModel();
     }
-
+    /// <summary>
+    /// Функция интерпретатора
+    /// </summary>
     abstract public class AbstractFunction
     {
         public string FunctionName;

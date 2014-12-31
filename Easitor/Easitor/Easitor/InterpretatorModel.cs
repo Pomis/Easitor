@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 namespace Easitor
 {
+    /// <summary>
+    /// Паттерн Интерпретатор
+    /// </summary>
     public class InterpretatorModel:INPC
     {
         public bool HasErrors

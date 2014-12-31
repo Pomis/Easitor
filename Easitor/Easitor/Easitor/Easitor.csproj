@@ -101,7 +101,6 @@
     </Compile>
     <Compile Include="Layer.cs" />
     <Compile Include="MoverToolModel.cs" />
-    <Compile Include="OptionModel.cs" />
     <Compile Include="PlacableModel.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="TimeredActions.cs" />

@@ -9,6 +9,9 @@ using System.Windows.Media.Imaging;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Действие из паттерна Команда
+    /// </summary>
     public class ToolCommand :INPC, ICommand
     {
 

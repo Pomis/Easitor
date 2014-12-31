@@ -10,6 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Кисть из линий и кружочков
+    /// </summary>
     public class PolilineBrushModel : CommonToolModel, ITool
     {
      

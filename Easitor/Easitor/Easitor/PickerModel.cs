@@ -8,6 +8,9 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 namespace Easitor
 {
+    /// <summary>
+    /// Инструмент для выбора цвета
+    /// </summary>
     public class PickerModel : CommonToolModel, ITool
     {
         MainWindow win;

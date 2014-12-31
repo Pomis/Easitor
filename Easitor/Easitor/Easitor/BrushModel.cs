@@ -10,6 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Точечная кисть
+    /// </summary>
     public class BrushModel : CommonToolModel, ITool
     {
         double PrevX;
@@ -25,7 +28,12 @@ namespace Easitor
             Icon = "UI/DottedBrushDark.png";
             Color = GRAY_2;
         }
-
+        /// <summary>
+        /// Начало рисования
+        /// </summary>
+        /// <param name="_Model">Логика приложения</param>
+        /// <param name="W">Окно</param>
+        /// <param name="e">Аргументы события</param>
         public void StartAction(EditorModel _Model, MainWindow W, MouseButtonEventArgs e)
         {
             win = W;
@@ -50,6 +58,9 @@ namespace Easitor
             PrevX = e.GetPosition(W.PaintArea).X - Model.SelectedLayer.X;
             PrevY = e.GetPosition(W.PaintArea).Y - Model.SelectedLayer.Y;
         }
+        /// <summary>
+        /// Закончить рисование
+        /// </summary>
         public void FinishAction()
         {
             
@@ -64,6 +75,9 @@ namespace Easitor
             HistoryModel.Instance.CommandHistory.Add(Command);
             HistoryModel.Instance.CheckIfTooLong();
         }
+        /// <summary>
+        /// Рисование при нажатой кнопке мыши
+        /// </summary>
         public void MouseMove(MouseEventArgs e) 
         {
             if (IsPainting)

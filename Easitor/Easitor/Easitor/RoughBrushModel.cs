@@ -10,6 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Грубая кисть
+    /// </summary>
     public class RoughBrushModel : CommonToolModel, ITool
     {
      

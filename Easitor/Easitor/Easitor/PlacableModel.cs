@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Родительский класс для классов, размещаемых на экране
+    /// </summary>
     public class PlacableModel:INPC
     {
         public EditorModel _Model;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Easitor
 {
+    /// <summary>
+    /// View Model Команды
+    /// </summary>
     public class ToolCommandViewModel :ToolCommand
     {
 

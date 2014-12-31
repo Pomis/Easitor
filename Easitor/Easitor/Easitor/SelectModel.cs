@@ -23,7 +23,7 @@ namespace Easitor
         {
             State.DealWithModel();
         }
-    }
+    } 
 
     public class EnumedState : IState
     {

@@ -10,6 +10,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Easitor
 {
+    /// <summary>
+    /// Сериализация прокета
+    /// </summary>
     [Serializable]
     class ProjectEncoderModel :ISerializable
     {

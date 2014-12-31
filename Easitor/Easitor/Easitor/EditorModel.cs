@@ -11,10 +11,15 @@ using System.IO;
 using System.Windows.Controls;
 namespace Easitor
 {
+    /// <summary>
+    /// Основная логика приложен
+    /// </summary>
     public class EditorModel:INPC
     {
         #region Поля
-
+        /// <summary>
+       /// Слайдеры радиуса, прозрачности, размытия, цвета
+       /// </summary>
         #region Поля слайдеров
 
         public double sliderRadius { get; set; }
@@ -41,15 +46,26 @@ namespace Easitor
         public double sliderBlurWidth { get { return _sliderBlurWidth; } set { _sliderBlurWidth = value; OnPropertyChanged("sliderBlurWidth"); } }
 
         #endregion
-
+        /// <summary>
+        /// Выбранный цвет
+        /// </summary>
         string _SelectedColor;
         public string SelectedColor { get { return _SelectedColor; } set { _SelectedColor = value; OnPropertyChanged("SelectedColor"); } }
-
+        /// <summary>
+        /// Грид для рендера
+        /// </summary>
         public System.Windows.Controls.Grid RenderGrid;
-
+        /// <summary>
+        /// Количество добавленных слоев (не равно количеству слоев)
+        /// </summary>
         public int LayersAdded = 0;
+        /// <summary>
+        /// Выбранный слой
+        /// </summary>
         public Layer SelectedLayer { get; set; }
-
+        /// <summary>
+        /// Ширина выезжающий панелей
+        /// </summary>
         double _LeftColumnWidth;
         public double LeftColumnWidth { get { return _LeftColumnWidth; } set { _LeftColumnWidth = value; OnPropertyChanged("LeftColumnWidth"); } }
         double _RightColumnWidth;
@@ -103,6 +119,9 @@ namespace Easitor
         public event NewDocumentEventHandler NewDocumentCreation;
         #endregion
         #region Статическая ссылка
+        /// <summary>
+        /// Статическая ссылка на экземпляр класса
+        /// </summary>
         static public EditorModel StaticModel;
         void MakeStaticLink()
         {
@@ -122,6 +141,9 @@ namespace Easitor
         #endregion
         #region Методы
         #region Панели инструментов
+        /// <summary>
+        /// Анимация движения левой панельки
+        /// </summary>
         public void MoveLeftPanel()
         {
             if (LeftColumnWidth == 0 || IsLeftPanelShrinking)
@@ -135,6 +157,9 @@ namespace Easitor
                 IsLeftPanelShrinking = true;
             }
         }
+        /// <summary>
+        /// Анимация движения правой панельки
+        /// </summary>
         public void MoveRightPanel()
         {
             if (RightColumnWidth == 0 || IsRightPanelShrinking)
@@ -161,7 +186,11 @@ namespace Easitor
                 }
             }
         }
-
+        /// <summary>
+        /// Двигать слайдер
+        /// </summary>
+        /// <param name="Factor">Коэффициент умножения параметров</param>
+        /// <param name="ToolTip">Подсказка</param>
         public void MoveSlider(double Factor, string ToolTip)
         {
             if (ToolTip == "Радиус выбранного интрумента")
@@ -192,6 +221,9 @@ namespace Easitor
                 sliderBlurWidth = Factor * 200;
             }
         }
+        /// <summary>
+        /// Инициализация слайдеров
+        /// </summary>
         void InitializeSliders()
         {
             sliderRadius = 5;
@@ -208,7 +240,9 @@ namespace Easitor
 
             sliderColorView = "#343546";
         }
-
+        /// <summary>
+        /// Размытие Гаусса (пункт меню)
+        /// </summary>
         public void Blur()
         {
             if (SelectedLayer != null)
@@ -217,6 +251,9 @@ namespace Easitor
         #endregion
 
         #region Работа со слоями
+        /// <summary>
+        /// Новый слой
+        /// </summary>
         public void NewLayer()
         {
             Layer L = new Layer(this);
@@ -233,6 +270,10 @@ namespace Easitor
                 }
             }
         }
+        /// <summary>
+        /// Выбрать слой
+        /// </summary>
+        /// <param name="_ToolTip">Подсказка</param>
         public void ChooseLayer(string _ToolTip)
         {
             foreach (Layer L in LayerList)
@@ -252,6 +293,10 @@ namespace Easitor
                 }
             }
         }
+        /// <summary>
+        /// Выбрать слой
+        /// </summary>
+        /// <param name="_L">Слой</param>
         public void ChooseLayer(Layer _L)
         {
             foreach (Layer L in LayerList)
@@ -263,7 +308,9 @@ namespace Easitor
             SelectedLayer = _L;
 
         }
-
+        /// <summary>
+        /// Удалить выбраннй слой
+        /// </summary>
         public void DeleteSelectedLayer()
         {
             RevercedLayerList.Remove(SelectedLayer);
@@ -288,6 +335,9 @@ namespace Easitor
         #endregion
 
         #region Работа с изображениями, файлами
+        /// <summary>
+        /// Импорт изображения
+        /// </summary>
         public void ImportImage()
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -303,7 +353,11 @@ namespace Easitor
                 new Layer(filename, this);
             }
         }
-
+        /// <summary>
+        /// Конвертировать RenderTargetBitmap в BitmapImage
+        /// </summary>
+        /// <param name="renderTargetBitmap">конвертируемый объект</param>
+        /// <returns></returns>
         public BitmapImage ConvertToBitmapImage(RenderTargetBitmap renderTargetBitmap)
         {
             //var renderTargetBitmap = getRenderTargetBitmap();
@@ -325,6 +379,10 @@ namespace Easitor
         }
 
         List<Grid> Grids = new List<Grid>();
+        /// <summary>
+        /// Создать список гридов
+        /// </summary>
+        /// <param name="Grid">Добавляемый грид</param>
         public void CreateGridList(Grid Grid)
         {
             RenderGrid = Grid;
@@ -340,6 +398,9 @@ namespace Easitor
             if (IsOK) Grids.Add(Grid);
         }
         public CustomFileDialog DialogWindow;
+        /// <summary>
+        /// Вызов окошка сохранения
+        /// </summary>
         public void Save()
         {
             
@@ -348,7 +409,9 @@ namespace Easitor
 
            
         }
-
+        /// <summary>
+        /// Вызов окошка загрузки
+        /// </summary>
         public void Load()
         {
             //ProjectEncoderModel Saver = new ProjectEncoderModel();
@@ -371,7 +434,7 @@ namespace Easitor
         #region Разное
         public void UndoUpTo(string Tag)
         {
-            HistoryModel.Instance.UndoUpTo(Tag);
+            //HistoryModel.Instance.UndoUpTo(Tag);
         }
 
         
@@ -387,11 +450,17 @@ namespace Easitor
             Layer FirstLayer = new Layer(this);
             ChooseLayer(FirstLayer);
         }
+        /// <summary>
+        /// Пасхалка
+        /// </summary>
         public void ShowEasterEgg()
         {
             System.Windows.MessageBox.Show
                 ("Я — Албанский вирус, но в связи с очень плохим развитием технологии в моей стране к сожалению я не могу причинить вред вашему компьютеру.\n Пожалуйста будьте так любезны стереть один из важных файлов с вашего компьютера самостоятельно.\nЗаранее благодарен за понимание и сотрудничество.");
         }
+        /// <summary>
+        /// Запустить Автоматизатор
+        /// </summary>
         public void RunAutomator()
         {
             InterpretatorWindow W = new InterpretatorWindow();
@@ -401,6 +470,9 @@ namespace Easitor
         #endregion  
 
         #region Рефлексия
+        /// <summary>
+        /// Загрузить классы, реализующие интерфейс
+        /// </summary>
         public void GetTypes()
         {
             var t = typeof(ITool);

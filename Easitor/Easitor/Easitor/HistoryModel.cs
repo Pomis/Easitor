@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Easitor
 {
+    /// <summary>
+    /// История действий, является одиночкой
+    /// </summary>
     public class HistoryModel :Singleton<HistoryModel>
     {
         private HistoryModel()

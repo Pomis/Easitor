@@ -13,6 +13,9 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 namespace Easitor
 {
+    /// <summary>
+    /// Слой
+    /// </summary>
     [Serializable]
     public class Layer:PlacableModel, ISerializable
     {
